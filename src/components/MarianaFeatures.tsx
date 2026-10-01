@@ -1,0 +1,184 @@
+import React, { useEffect, useState, useRef } from 'react';
+import { useTranslation } from 'react-i18next';
+import { motion, useInView, useSpring, useTransform } from 'framer-motion';
+import { MessageCircle, Scale, ShieldAlert, HeartHandshake, Briefcase, Globe, FileCheck2, Building2 } from 'lucide-react';
+import { Link } from 'react-router-dom';
+
+// --- Animated Counter ---
+const Counter = ({ value, suffix = "" }: { value: number, suffix?: string }) => {
+  const ref = useRef(null);
+  const isInView = useInView(ref, { once: true, margin: "-100px" });
+  
+  const springValue = useSpring(0, {
+    bounce: 0,
+    duration: 2500,
+  });
+
+  const displayValue = useTransform(springValue, (current) => Math.floor(current));
+
+  useEffect(() => {
+    if (isInView) {
+      springValue.set(value);
+    }
+  }, [isInView, value, springValue]);
+
+  return (
+    <span ref={ref} className="flex items-center justify-center">
+      <motion.span>{displayValue}</motion.span>
+      {suffix}
+    </span>
+  );
+};
+
+export const MarianaStats = ({ stats }: { stats: { value: number, suffix: string, label: string }[] }) => {
+  return (
+    <section className="py-16 px-6 sm:px-8 bg-purple-950 text-white relative overflow-hidden">
+      <div className="absolute inset-0 bg-[url('https://www.transparenttextures.com/patterns/cubes.png')] opacity-10 mix-blend-overlay"></div>
+      <div className="max-w-6xl mx-auto grid grid-cols-1 md:grid-cols-3 gap-8 md:gap-12 relative z-10 text-center">
+        {stats.map((stat, i) => (
+          <div key={i} className="flex flex-col items-center">
+            <h3 className="text-5xl md:text-6xl font-bold text-purple-300 mb-2 font-serif">
+              <Counter value={stat.value} suffix={stat.suffix} />
+            </h3>
+            <p className="text-lg md:text-xl text-purple-100 opacity-80 uppercase tracking-wider text-center">{stat.label}</p>
+          </div>
+        ))}
+      </div>
+    </section>
+  );
+};
+
+// --- Practice Areas Grid ---
+export const MarianaPracticeAreas = ({ areas }: { areas: { title: string, desc: string, icon: any }[] }) => {
+  const { t } = useTranslation();
+  
+  return (
+    <section className="py-16 lg:py-24 px-6 sm:px-8 lg:px-16 bg-white relative">
+      <div className="max-w-6xl mx-auto">
+        <motion.div 
+          initial={{ opacity: 0, y: 20 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
+          className="text-center mb-16"
+        >
+          <h2 className="text-4xl md:text-5xl font-bold mb-4 text-gray-900">
+            Áreas de Práctica
+          </h2>
+          <div className="w-24 h-1 bg-gradient-to-r from-purple-600 to-purple-400 mx-auto rounded-full" />
+        </motion.div>
+
+        <div className="grid md:grid-cols-3 gap-8">
+          {areas.map((area, i) => {
+            const Icon = area.icon;
+            return (
+              <motion.div
+                key={i}
+                initial={{ opacity: 0, y: 30 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true }}
+                transition={{ delay: i * 0.15 }}
+                whileHover={{ y: -8 }}
+                className="bg-gray-50 border border-gray-100 rounded-2xl p-8 hover:shadow-xl hover:shadow-purple-900/5 transition-all duration-300 group"
+              >
+                <div className="w-16 h-16 bg-purple-100 rounded-2xl flex items-center justify-center text-purple-600 mb-6 group-hover:scale-110 group-hover:bg-purple-600 group-hover:text-white transition-all duration-300">
+                  <Icon className="w-8 h-8" />
+                </div>
+                <h3 className="text-2xl font-bold mb-4 text-gray-900">{area.title}</h3>
+                <p className="text-gray-600 leading-relaxed">
+                  {area.desc}
+                </p>
+              </motion.div>
+            )
+          })}
+        </div>
+      </div>
+    </section>
+  );
+};
+
+// --- Floating Contact Button ---
+export const MarianaFloatingContact = () => {
+  return (
+    <motion.a
+      href="#"
+      initial={{ scale: 0, opacity: 0 }}
+      animate={{ scale: 1, opacity: 1 }}
+      transition={{ delay: 1, type: "spring", stiffness: 200, damping: 20 }}
+      whileHover={{ scale: 1.05 }}
+      whileTap={{ scale: 0.95 }}
+      className="fixed bottom-6 right-6 z-50 flex items-center justify-center gap-2 bg-green-500 hover:bg-green-600 text-white px-5 py-4 rounded-full shadow-2xl cursor-pointer"
+      style={{ boxShadow: '0 10px 25px -5px rgba(34, 197, 94, 0.5)' }}
+    >
+      <MessageCircle className="w-6 h-6" />
+      <span className="font-bold hidden sm:inline">Consulta Gratis</span>
+      
+      {/* Ripple effect */}
+      <span className="absolute inset-0 rounded-full border-2 border-green-400 animate-ping opacity-75"></span>
+    </motion.a>
+  );
+};
+
+// --- Premium Legal Footer ---
+export const MarianaFooter = () => {
+  return (
+    <footer className="bg-[#05020a] text-gray-400 py-12 md:py-16 px-6 sm:px-8 lg:px-16 border-t border-white/5">
+      <div className="max-w-6xl mx-auto grid grid-cols-1 md:grid-cols-4 gap-8 md:gap-12 mb-12">
+        <div className="md:col-span-2">
+          <h2 className="text-2xl font-bold text-white mb-6">Tu Abogada Mariana</h2>
+          <p className="mb-6 leading-relaxed max-w-sm">
+            Defendiendo sus derechos con pasión, integridad y resultados comprobados. Estamos aquí para proteger a su familia y su futuro.
+          </p>
+          <div className="flex space-x-4">
+            {/* Social placeholders */}
+            <div className="w-10 h-10 rounded-full bg-white/5 flex items-center justify-center hover:bg-purple-600 transition-colors cursor-pointer text-white">FB</div>
+            <div className="w-10 h-10 rounded-full bg-white/5 flex items-center justify-center hover:bg-purple-600 transition-colors cursor-pointer text-white">IG</div>
+            <div className="w-10 h-10 rounded-full bg-white/5 flex items-center justify-center hover:bg-purple-600 transition-colors cursor-pointer text-white">IN</div>
+          </div>
+        </div>
+        
+        <div>
+          <h3 className="text-white font-bold mb-6 uppercase tracking-wider text-sm">Enlaces Rápidos</h3>
+          <ul className="space-y-3">
+            <li><Link to="/mariana/personal-injury" className="hover:text-purple-400 transition-colors">Daños Personales</Link></li>
+            <li><Link to="/mariana/immigration" className="hover:text-purple-400 transition-colors">Inmigración</Link></li>
+            <li><a href="#" className="hover:text-purple-400 transition-colors">Casos de Éxito</a></li>
+            <li><a href="#" className="hover:text-purple-400 transition-colors">Contáctanos</a></li>
+          </ul>
+        </div>
+        
+        <div>
+          <h3 className="text-white font-bold mb-6 uppercase tracking-wider text-sm">Oficina Principal</h3>
+          <address className="not-italic space-y-3">
+            <p>1234 Legal Avenue, Suite 500</p>
+            <p>Houston, TX 77002</p>
+            <p className="text-purple-400 font-bold mt-4">(555) 123-4567</p>
+            <p>info@abogadamariana.com</p>
+          </address>
+        </div>
+      </div>
+      
+      <div className="max-w-6xl mx-auto pt-8 border-t border-white/10 text-xs text-gray-600 leading-relaxed text-justify">
+        <p className="mb-4">
+          <strong>Disclaimer Legal:</strong> La información contenida en este sitio web se proporciona únicamente con fines informativos y no debe interpretarse como asesoramiento legal sobre ningún asunto. La transmisión y recepción de información a través de este sitio web, en su totalidad o en parte, o la comunicación con Tu Abogada Mariana a través de Internet o correo electrónico a través de este sitio web no constituye ni crea una relación abogado-cliente. No debe actuar ni abstenerse de actuar sobre la base de la información proporcionada en este sitio web sin buscar asesoramiento legal profesional o de otro tipo en su jurisdicción.
+        </p>
+        <p>
+          Resultados pasados no garantizan resultados futuros. Cada caso es diferente y debe evaluarse por sus propios méritos. Los abogados de la firma están licenciados para ejercer en el estado de Texas a menos que se indique lo contrario. © {new Date().getFullYear()} Tu Abogada Mariana. Todos los derechos reservados.
+        </p>
+      </div>
+    </footer>
+  );
+};
+
+// --- Trust Badges ---
+export const MarianaTrustBadges = () => {
+  return (
+    <div className="bg-[#05020a] border-t border-b border-white/5 py-8 overflow-hidden">
+      <div className="max-w-6xl mx-auto px-8 flex flex-wrap justify-center gap-8 md:gap-16 opacity-50 grayscale hover:grayscale-0 transition-all duration-500">
+        <div className="flex items-center gap-2 text-white font-bold text-xl"><ShieldAlert className="w-8 h-8" /> SUPER LAWYERS</div>
+        <div className="flex items-center gap-2 text-white font-bold text-xl"><Scale className="w-8 h-8" /> TEXAS BAR</div>
+        <div className="flex items-center gap-2 text-white font-bold text-xl"><Globe className="w-8 h-8" /> AS SEEN ON TV</div>
+        <div className="flex items-center gap-2 text-white font-bold text-xl"><Briefcase className="w-8 h-8" /> AVVO 10.0</div>
+      </div>
+    </div>
+  );
+};

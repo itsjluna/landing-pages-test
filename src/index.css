@@ -1,0 +1,34 @@
+@import "tailwindcss";
+
+@theme {
+  --color-mariana-light: #f3e8ff;
+  --color-mariana: #9333ea;
+  --color-mariana-dark: #581c87;
+  
+  --color-shev-blue: #1d4ed8;
+  --color-shev-red: #dc2626;
+  --color-shev-light: #f8fafc;
+  --color-shev-dark: #0f172a;
+}
+
+@layer base {
+  body {
+    @apply antialiased text-gray-800;
+  }
+}
+
+@layer utilities {
+  @keyframes shine {
+    100% {
+      left: 125%;
+    }
+  }
+
+  .hide-scrollbar {
+    -ms-overflow-style: none;  /* IE and Edge */
+    scrollbar-width: none;  /* Firefox */
+  }
+  .hide-scrollbar::-webkit-scrollbar {
+    display: none;
+  }
+}
