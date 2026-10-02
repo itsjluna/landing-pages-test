@@ -11,17 +11,17 @@ const ShevImmigration = () => {
   return (
     <div className="bg-slate-50 font-sans">
       <ShevHero 
-        title="Global Mobility."
-        subtitle="Expert Immigration Attorneys. Guiding businesses and families through complex U.S. immigration laws."
+        title={t("shev.imm.hero.title")}
+        subtitle={t("shev.imm.hero.subtitle")}
         imageSrc="https://images.unsplash.com/photo-1520694478166-daaaaec95b69?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80"
         primaryColor={themeColor}
       />
       <ShevStats 
         primaryColor={themeColor}
         stats={[
-          { value: 5000, suffix: "+", label: "Visas Approved" },
-          { value: 50, suffix: "+", label: "Countries Represented" },
-          { value: 20, suffix: "", label: "Years Experience" }
+          { value: 5000, suffix: "+", label: t("shev.imm.stats.1.label") },
+          { value: 50, suffix: "+", label: t("shev.imm.stats.2.label") },
+          { value: 20, suffix: "", label: t("mariana.pi.stats.3.label") }
         ]} 
       />
       <ShevBanner 
@@ -31,22 +31,22 @@ const ShevImmigration = () => {
       <ShevPracticeAreas 
         primaryColor={themeColor}
         areas={[
-          { title: "Corporate Immigration", desc: "Securing H-1B, L-1, and O-1 visas for top global talent and multinational corporations.", icon: Building2 },
-          { title: "Family Petitions", desc: "Navigating complex family-based immigration, adjustment of status, and consular processing.", icon: Globe },
-          { title: "Deportation Defense", desc: "Aggressive representation in immigration court to protect your right to stay in the U.S.", icon: FileCheck2 }
+          { title: t("shev.imm.practice.1.title"), desc: t("shev.imm.practice.1.desc"), icon: Building2 },
+          { title: t("shev.imm.practice.2.title"), desc: t("shev.imm.practice.2.desc"), icon: Globe },
+          { title: t("shev.imm.practice.3.title"), desc: t("shev.imm.practice.3.desc"), icon: FileCheck2 }
         ]} 
       />
       <ShevWhyChooseUs 
         primaryColor={themeColor}
         points={[
-          { title: "Corporate Expertise", desc: "We understand business. We align your immigration strategy with your corporate growth and talent acquisition goals." },
-          { title: "Global Reach", desc: "Our attorneys handle complex consular processing and global mobility challenges across all U.S. embassies." },
-          { title: "Relentless Advocacy", desc: "In the face of government pushback or deportation proceedings, we litigate aggressively to protect our clients." }
+          { title: t("shev.imm.why.1.title"), desc: t("shev.imm.why.1.desc") },
+          { title: t("shev.imm.why.2.title"), desc: t("shev.imm.why.2.desc") },
+          { title: t("shev.imm.why.3.title"), desc: t("shev.imm.why.3.desc") }
         ]}
       />
       <ShevBiography 
-        name="The Shev Legal Team"
-        bio="Our immigration department handles both employment-based visas for multinational corporations and complex family petitions.\n\nWe provide strategic, results-driven immigration counsel, ensuring compliance and success in a rapidly changing legal landscape."
+        name={t("shev.pi.bio.name")}
+        bio={t("shev.imm.bio.text")}
         imageSrc="https://images.unsplash.com/photo-1520694478166-daaaaec95b69?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80"
         primaryColor={themeColor}
       />
@@ -54,9 +54,9 @@ const ShevImmigration = () => {
       <ShevFAQ 
         primaryColor={themeColor}
         questions={[
-          {q: "Can you help my business hire foreign workers?", a: "Yes, we specialize in H-1B, L-1, O-1, and employment-based green cards (EB-1, EB-2, EB-3) for companies of all sizes."},
-          {q: "How can I sponsor my spouse?", a: "We guide you through the entire family-based petition process, whether your spouse is in the U.S. (Adjustment of Status) or abroad (Consular Processing)."},
-          {q: "What is an E-2 Visa?", a: "The E-2 Treaty Investor visa allows nationals of certain countries to direct and develop a U.S. business they have invested in. We can evaluate your eligibility."}
+          {q: t("shev.imm.faq.1.q"), a: t("shev.imm.faq.1.a")},
+          {q: t("shev.imm.faq.2.q"), a: t("shev.imm.faq.2.a")},
+          {q: t("shev.imm.faq.3.q"), a: t("shev.imm.faq.3.a")}
         ]}
       />
       <ShevCTA primaryColor={themeColor} />

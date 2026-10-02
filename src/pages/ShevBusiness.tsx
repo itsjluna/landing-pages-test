@@ -11,17 +11,17 @@ const ShevBusiness = () => {
   return (
     <div className="bg-slate-50 font-sans">
       <ShevHero 
-        title="Corporate Counsel."
-        subtitle="Corporate & Business Law. Protecting your enterprise, minimizing risk, and facilitating growth."
+        title={t("shev.biz.hero.title")}
+        subtitle={t("shev.biz.hero.subtitle")}
         imageSrc="https://images.unsplash.com/photo-1556761175-4b46a572b786?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80"
         primaryColor={themeColor}
       />
       <ShevStats 
         primaryColor={themeColor}
         stats={[
-          { value: 500, suffix: "+", label: "Businesses Formed" },
-          { value: 1, suffix: "B+", label: "Deals Negotiated" },
-          { value: 20, suffix: "", label: "Years Experience" }
+          { value: 500, suffix: "+", label: t("shev.biz.stats.1.label") },
+          { value: 1, suffix: "B+", label: t("shev.biz.stats.2.label") },
+          { value: 20, suffix: "", label: t("mariana.pi.stats.3.label") }
         ]} 
       />
       <ShevBanner 
@@ -31,22 +31,22 @@ const ShevBusiness = () => {
       <ShevPracticeAreas 
         primaryColor={themeColor}
         areas={[
-          { title: "Entity Formation", desc: "Strategic structuring for LLCs, Corporations, and Partnerships to maximize protection and tax benefits.", icon: Building2 },
-          { title: "Commercial Litigation", desc: "Aggressive representation in breach of contract, partnership disputes, and business torts.", icon: Scale },
-          { title: "M&A Transactions", desc: "Expert counsel for mergers, acquisitions, and major corporate restructuring.", icon: Handshake }
+          { title: t("shev.biz.practice.1.title"), desc: t("shev.biz.practice.1.desc"), icon: Building2 },
+          { title: t("shev.biz.practice.2.title"), desc: t("shev.biz.practice.2.desc"), icon: Scale },
+          { title: t("shev.biz.practice.3.title"), desc: t("shev.biz.practice.3.desc"), icon: Handshake }
         ]} 
       />
       <ShevWhyChooseUs 
         primaryColor={themeColor}
         points={[
-          { title: "Outside General Counsel", desc: "We act as your dedicated legal department, providing proactive advice to prevent issues before they become expensive lawsuits." },
-          { title: "Deal Makers, Not Breakers", desc: "We facilitate your business growth by drafting watertight contracts that protect you while getting the deal done." },
-          { title: "High-Stakes Litigation", desc: "When disputes arise, we bring elite trial experience to defend your enterprise aggressively in state and federal courts." }
+          { title: t("shev.biz.why.1.title"), desc: t("shev.biz.why.1.desc") },
+          { title: t("shev.biz.why.2.title"), desc: t("shev.biz.why.2.desc") },
+          { title: t("shev.biz.why.3.title"), desc: t("shev.biz.why.3.desc") }
         ]}
       />
       <ShevBiography 
-        name="The Shev Legal Team"
-        bio="Our business attorneys act as outside general counsel for mid-market and emerging companies across Texas.\n\nFrom formation and contracts to M&A and commercial litigation, we deliver sophisticated legal solutions that drive business success."
+        name={t("shev.pi.bio.name")}
+        bio={t("shev.biz.bio.text")}
         imageSrc="https://images.unsplash.com/photo-1556761175-4b46a572b786?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80"
         primaryColor={themeColor}
       />
@@ -54,9 +54,9 @@ const ShevBusiness = () => {
       <ShevFAQ 
         primaryColor={themeColor}
         questions={[
-          {q: "Should I form an LLC or a Corporation?", a: "It depends on your liability needs, tax strategy, and funding goals. We consult with you to choose the optimal entity structure for your specific business."},
-          {q: "Do you handle contract drafting and review?", a: "Yes, we draft, review, and negotiate all types of commercial agreements, including employment contracts, NDAs, vendor agreements, and commercial leases."},
-          {q: "Can you help resolve a dispute with my business partner?", a: "We handle partnership disputes and breach of fiduciary duty claims, aiming for efficient resolution but prepared for aggressive litigation if necessary."}
+          {q: t("shev.biz.faq.1.q"), a: t("shev.biz.faq.1.a")},
+          {q: t("shev.biz.faq.2.q"), a: t("shev.biz.faq.2.a")},
+          {q: t("shev.biz.faq.3.q"), a: t("shev.biz.faq.3.a")}
         ]}
       />
       <ShevCTA primaryColor={themeColor} />

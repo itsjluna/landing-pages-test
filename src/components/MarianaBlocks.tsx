@@ -157,15 +157,15 @@ export const MarianaSuccessStories = () => {
                 ))}
               </div>
               <p className="text-gray-600 mb-8 italic leading-relaxed">
-                "El equipo de Mariana cambió mi vida. Fueron muy profesionales y siempre estuvieron ahí para responder a mis dudas. Definitivamente los recomiendo a todos."
+                {t('Client Testimonial')}
               </p>
               <div className="flex items-center">
                 <div className="w-12 h-12 bg-purple-200 rounded-full flex items-center justify-center text-purple-700 font-bold mr-4">
                   C{i}
                 </div>
                 <div>
-                  <div className="font-bold text-gray-900">Cliente Satisfecho {i}</div>
-                  <div className="text-sm text-gray-500">Texas, EE.UU.</div>
+                  <div className="font-bold text-gray-900">{t('Satisfied Client')} {i}</div>
+                  <div className="text-sm text-gray-500">{t('Texas, USA')}</div>
                 </div>
               </div>
             </motion.div>
@@ -207,7 +207,7 @@ export const MarianaBiography = ({ name, bio, imageSrc }: { name: string, bio: s
             </h2>
           </div>
           <h3 className="text-3xl sm:text-4xl lg:text-5xl font-light mb-6 sm:mb-8 text-gray-900">
-            Conoce a <span className="font-bold">{name}</span>
+            {t('Meet')} <span className="font-bold">{name}</span>
           </h3>
           <div className="text-lg text-gray-600 leading-relaxed space-y-6">
             {bio.split('\n\n').map((paragraph, i) => (
@@ -216,7 +216,7 @@ export const MarianaBiography = ({ name, bio, imageSrc }: { name: string, bio: s
           </div>
           
           <button className="mt-10 px-8 py-4 rounded-full border border-purple-200 text-purple-700 font-semibold hover:bg-purple-50 transition-colors duration-300">
-            Leer Perfil Completo
+            {t('Read Full Profile')}
           </button>
         </motion.div>
       </div>
@@ -285,6 +285,7 @@ export const MarianaFAQ = ({ questions }: { questions: {q: string, a: string}[] 
 };
 
 export const MarianaWhyChooseUs = ({ points }: { points: { title: string, desc: string }[] }) => {
+  const { t } = useTranslation();
   return (
     <section className="py-16 lg:py-24 px-6 sm:px-8 lg:px-16 bg-purple-50 relative overflow-hidden">
       <div className="absolute top-0 left-0 w-full h-full bg-[url('https://www.transparenttextures.com/patterns/cubes.png')] opacity-10 mix-blend-overlay"></div>
@@ -296,7 +297,7 @@ export const MarianaWhyChooseUs = ({ points }: { points: { title: string, desc: 
           className="text-center mb-16"
         >
           <h2 className="text-3xl sm:text-4xl md:text-5xl font-bold mb-4 text-purple-950">
-            ¿Por qué elegirnos?
+            {t("Why Choose Us?")}
           </h2>
           <div className="w-24 h-1 bg-gradient-to-r from-purple-600 to-purple-400 mx-auto rounded-full" />
         </motion.div>
@@ -351,17 +352,17 @@ export const MarianaCTA = () => {
         className="relative z-10 max-w-3xl mx-auto"
       >
         <h2 className="text-4xl md:text-5xl lg:text-6xl font-bold text-white mb-6">
-          Programe su consulta gratuita
+          {t("Schedule your free consultation")}
         </h2>
         <p className="text-xl text-purple-200 mb-10 max-w-2xl mx-auto">
-          No espere más. Su futuro y su tranquilidad son nuestra prioridad. Estamos aquí para guiarle en cada paso del proceso.
+          {t("Don't wait any longer. Your future and peace of mind are our priority. We are here to guide you every step of the process.")}
         </p>
         <a 
           href="#contact-form" 
           onClick={scrollToForm}
           className="inline-block relative overflow-hidden px-10 py-5 text-white font-bold text-lg rounded-full shadow-lg shadow-purple-900/50 bg-gradient-to-r from-purple-600 to-purple-400 hover:from-purple-500 hover:to-purple-300 transition-all duration-300 hover:-translate-y-1 group"
         >
-          <span className="relative z-10">Agenda tu Cita Hoy</span>
+          <span className="relative z-10">{t("Schedule Today")}</span>
           <div className="absolute top-0 -inset-full h-full w-1/2 z-5 block transform -skew-x-12 bg-gradient-to-r from-transparent via-white/40 to-transparent opacity-40 group-hover:animate-[shine_1.5s_ease-in-out_infinite]"></div>
         </a>
       </motion.div>

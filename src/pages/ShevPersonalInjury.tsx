@@ -11,17 +11,17 @@ const ShevPersonalInjury = () => {
   return (
     <div className="bg-slate-50 font-sans">
       <ShevHero 
-        title="Demand Justice."
-        subtitle="Relentless representation for Personal Injury victims in Texas. We demand justice and maximum compensation."
+        title={t("shev.pi.hero.title")}
+        subtitle={t("shev.pi.hero.subtitle")}
         imageSrc="https://images.unsplash.com/photo-1556761175-5973dc0f32b7?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80"
         primaryColor={themeColor}
       />
       <ShevStats 
         primaryColor={themeColor}
         stats={[
-          { value: 150, suffix: "M+", label: "Total Recovered" },
-          { value: 2500, suffix: "+", label: "Cases Won" },
-          { value: 99, suffix: "%", label: "Success Rate" }
+          { value: 150, suffix: "M+", label: t("shev.pi.stats.1.label") },
+          { value: 2500, suffix: "+", label: t("shev.pi.stats.2.label") },
+          { value: 99, suffix: "%", label: t("mariana.imm.stats.2.label") }
         ]} 
       />
       <ShevBanner 
@@ -31,22 +31,22 @@ const ShevPersonalInjury = () => {
       <ShevPracticeAreas 
         primaryColor={themeColor}
         areas={[
-          { title: "Auto Accidents", desc: "Aggressive litigation against insurance companies for catastrophic car and truck accidents.", icon: ShieldAlert },
-          { title: "Workplace Injury", desc: "Holding negligent employers and third parties accountable for severe workplace injuries.", icon: Briefcase },
-          { title: "Premises Liability", desc: "Securing maximum compensation for slip and fall accidents and negligent security.", icon: HeartHandshake }
+          { title: t("shev.pi.practice.1.title"), desc: t("shev.pi.practice.1.desc"), icon: ShieldAlert },
+          { title: t("shev.pi.practice.2.title"), desc: t("shev.pi.practice.2.desc"), icon: Briefcase },
+          { title: t("shev.pi.practice.3.title"), desc: t("shev.pi.practice.3.desc"), icon: HeartHandshake }
         ]} 
       />
       <ShevWhyChooseUs 
         primaryColor={themeColor}
         points={[
-          { title: "We Don't Settle for Less", desc: "Insurance companies know we are willing and ready to go to trial if they refuse to pay what your case is truly worth." },
-          { title: "Elite Legal Strategy", desc: "We utilize cutting-edge technology, expert witnesses, and aggressive discovery to build airtight cases." },
-          { title: "No Fee Guarantee", desc: "We finance your entire litigation. You pay absolutely nothing out of pocket unless we secure a verdict or settlement in your favor." }
+          { title: t("shev.pi.why.1.title"), desc: t("shev.pi.why.1.desc") },
+          { title: t("shev.pi.why.2.title"), desc: t("shev.pi.why.2.desc") },
+          { title: t("shev.pi.why.3.title"), desc: t("shev.pi.why.3.desc") }
         ]}
       />
       <ShevBiography 
-        name="The Shev Legal Team"
-        bio="Shev Law Group is a premier litigation firm in Texas. Our team of aggressive trial lawyers has recovered millions for injury victims.\n\nWe combine elite legal strategy with aggressive courtroom tactics. We do not settle for less than what our clients deserve."
+        name={t("shev.pi.bio.name")}
+        bio={t("shev.pi.bio.text")}
         imageSrc="https://images.unsplash.com/photo-1556761175-5973dc0f32b7?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80"
         primaryColor={themeColor}
       />
@@ -54,9 +54,9 @@ const ShevPersonalInjury = () => {
       <ShevFAQ 
         primaryColor={themeColor}
         questions={[
-          {q: "What is a contingency fee?", a: "It means we only get paid if we win your case. Our fee is a percentage of the settlement or verdict, so you pay nothing out of pocket."},
-          {q: "How long do I have to file a claim?", a: "In Texas, the statute of limitations for personal injury is generally two years from the date of the accident. Do not wait to seek counsel."},
-          {q: "What if I was partially at fault?", a: "Texas follows modified comparative negligence. You can still recover damages as long as you were not more than 50% at fault."}
+          {q: t("shev.pi.faq.1.q"), a: t("shev.pi.faq.1.a")},
+          {q: t("shev.pi.faq.2.q"), a: t("shev.pi.faq.2.a")},
+          {q: t("shev.pi.faq.3.q"), a: t("shev.pi.faq.3.a")}
         ]}
       />
       <ShevCTA primaryColor={themeColor} />

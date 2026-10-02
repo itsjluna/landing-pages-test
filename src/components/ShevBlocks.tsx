@@ -35,14 +35,14 @@ export const ShevHero = ({ title, subtitle, imageSrc, primaryColor }: { title: s
           transition={{ duration: 0.6, delay: 0.2, ease: "easeOut" }}
           className="bg-transparent border-t-8 border-b-2 border-slate-900 py-8 max-w-xl relative mt-8"
         >
-          <h3 className="text-xl sm:text-2xl font-bold mb-8 font-serif uppercase tracking-widest text-slate-900">{t('Request a Consultation')}</h3>
+          <h3 className="text-xl sm:text-2xl font-bold mb-8 font-serif uppercase tracking-widest text-slate-900">{t('Request Evaluation')}</h3>
           <form className="space-y-6" onSubmit={(e) => e.preventDefault()}>
             <div className="grid grid-cols-1 sm:grid-cols-2 gap-6">
               <input type="text" placeholder={t('First Name')} className="w-full py-2 bg-transparent border-b border-slate-400 focus:outline-none focus:border-slate-900 transition-colors rounded-none placeholder-slate-500 font-serif" />
               <input type="text" placeholder={t('Last Name')} className="w-full py-2 bg-transparent border-b border-slate-400 focus:outline-none focus:border-slate-900 transition-colors rounded-none placeholder-slate-500 font-serif" />
             </div>
-            <input type="email" placeholder={t('Email Address')} className="w-full py-2 bg-transparent border-b border-slate-400 focus:outline-none focus:border-slate-900 transition-colors rounded-none placeholder-slate-500 font-serif" />
-            <input type="tel" placeholder={t('Phone Number')} className="w-full py-2 bg-transparent border-b border-slate-400 focus:outline-none focus:border-slate-900 transition-colors rounded-none placeholder-slate-500 font-serif" />
+            <input type="email" placeholder={t('Email')} className="w-full py-2 bg-transparent border-b border-slate-400 focus:outline-none focus:border-slate-900 transition-colors rounded-none placeholder-slate-500 font-serif" />
+            <input type="tel" placeholder={t('Phone')} className="w-full py-2 bg-transparent border-b border-slate-400 focus:outline-none focus:border-slate-900 transition-colors rounded-none placeholder-slate-500 font-serif" />
             
             <div className="pt-4">
               <button 
@@ -301,6 +301,7 @@ export const ShevFAQ = ({ questions, primaryColor }: { questions: {q: string, a:
 };
 
 export const ShevWhyChooseUs = ({ points, primaryColor }: { points: { title: string, desc: string }[], primaryColor: string }) => {
+  const { t } = useTranslation();
   const isRed = primaryColor === 'red';
   const highlightHex = isRed ? '#dc2626' : '#1d4ed8';
 
@@ -314,7 +315,7 @@ export const ShevWhyChooseUs = ({ points, primaryColor }: { points: { title: str
           className="text-center mb-16"
         >
           <h2 className="text-3xl sm:text-4xl md:text-5xl font-serif font-bold mb-6 text-slate-900 uppercase tracking-widest">
-            ¿Por qué elegirnos?
+            {t('Why Choose Us?')}
           </h2>
           <div className="w-24 h-1 mx-auto" style={{ backgroundColor: highlightHex }} />
         </motion.div>
@@ -372,11 +373,11 @@ export const ShevCTA = ({ primaryColor }: { primaryColor: string }) => {
         className="relative z-10 max-w-4xl mx-auto"
       >
         <h2 className="text-4xl md:text-5xl lg:text-7xl font-serif font-bold text-white mb-8 uppercase tracking-widest">
-          Programe su consulta gratuita
+          {t("Schedule your free consultation")}
         </h2>
         <div className="w-16 h-1 mx-auto mb-8" style={{ backgroundColor: isRed ? '#dc2626' : '#1d4ed8' }} />
         <p className="text-xl text-slate-300 mb-10 max-w-2xl mx-auto font-serif italic">
-          No dude. Proteja sus intereses hoy. Contáctenos para una evaluación confidencial de su caso.
+          {t("Do not hesitate. Protect your interests today. Contact us for a confidential evaluation of your case.")}
         </p>
         <a 
           href="#contact-form" 
@@ -384,7 +385,7 @@ export const ShevCTA = ({ primaryColor }: { primaryColor: string }) => {
           className="inline-block relative overflow-hidden px-12 py-5 text-white font-bold uppercase tracking-widest transition-colors duration-300 hover:bg-white hover:text-slate-900 rounded-none group border-2"
           style={{ borderColor: isRed ? '#dc2626' : '#1d4ed8', backgroundColor: isRed ? '#dc2626' : '#1d4ed8' }}
         >
-          <span className="relative z-10 group-hover:text-slate-900 transition-colors">Solicitar Evaluación</span>
+          <span className="relative z-10 group-hover:text-slate-900 transition-colors">{t("Request Evaluation")}</span>
           <div className="absolute inset-0 w-full h-full bg-white transform -translate-x-full group-hover:translate-x-0 transition-transform duration-300 ease-out z-0"></div>
         </a>
       </motion.div>

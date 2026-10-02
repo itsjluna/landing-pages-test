@@ -10,39 +10,39 @@ const MarianaImmigration = () => {
   return (
     <div className="bg-[#0a0514]">
       <MarianaHero 
-        title="Tu Abogada Mariana"
-        subtitle="Su aliada en procesos de Inmigración. Manteniendo a las familias unidas en Texas con dedicación y honestidad."
+        title={t("mariana.imm.hero.title")}
+        subtitle={t("mariana.imm.hero.subtitle")}
         imageSrc="https://images.unsplash.com/photo-1551836022-d5d88e9218df?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80"
       />
       <MarianaStats stats={[
-        { value: 1500, suffix: "+", label: "Familias Unidas" },
-        { value: 98, suffix: "%", label: "Tasa de Éxito" },
-        { value: 15, suffix: "", label: "Años de Experiencia" }
+        { value: 1500, suffix: "+", label: t("mariana.imm.stats.1.label") },
+        { value: 98, suffix: "%", label: t("mariana.imm.stats.2.label") },
+        { value: 15, suffix: "", label: t("mariana.pi.stats.3.label") }
       ]} />
       <MarianaBanner 
         text={t("Schedule your appointment to evaluate your case")}
       />
       <MarianaPracticeAreas areas={[
-        { title: "Peticiones Familiares", desc: "Traiga a sus seres queridos a los Estados Unidos. Le guiamos en cada paso del proceso I-130 y visas de prometido.", icon: Globe },
-        { title: "Ciudadanía y Naturalización", desc: "Le preparamos para su entrevista y examen cívico para que pueda lograr el sueño americano y convertirse en ciudadano.", icon: FileCheck2 },
-        { title: "Defensa de Deportación", desc: "Si enfrenta un proceso de remoción, necesita representación agresiva en la corte de inmigración inmediatamente.", icon: Building2 }
+        { title: t("mariana.imm.practice.1.title"), desc: t("mariana.imm.practice.1.desc"), icon: Globe },
+        { title: t("mariana.imm.practice.2.title"), desc: t("mariana.imm.practice.2.desc"), icon: FileCheck2 },
+        { title: t("mariana.imm.practice.3.title"), desc: t("mariana.imm.practice.3.desc"), icon: Building2 }
       ]} />
       <MarianaWhyChooseUs points={[
-        { title: "Honestidad Radical", desc: "Le diremos exactamente qué esperar de su caso desde el primer día, sin falsas promesas ni costos ocultos." },
-        { title: "Comunicación Constante", desc: "Usted tendrá acceso directo a nuestro equipo. Jamás lo dejaremos en la oscuridad durante meses como hacen otros." },
-        { title: "Dedicación Exclusiva", desc: "La ley de inmigración es compleja y cambia constantemente. Nosotros nos dedicamos exclusivamente a proteger su futuro aquí." }
+        { title: t("mariana.imm.why.1.title"), desc: t("mariana.imm.why.1.desc") },
+        { title: t("mariana.imm.why.2.title"), desc: t("mariana.imm.why.2.desc") },
+        { title: t("mariana.imm.why.3.title"), desc: t("mariana.imm.why.3.desc") }
       ]} />
       <MarianaBiography 
-        name="Mariana"
-        bio="Mariana is passionate about helping immigrants achieve the American dream. She handles family-based petitions, naturalization, and deportation defense with profound dedication.\n\nHer mission is to navigate the complex immigration system for you, ensuring that every form is perfect and every deadline is met, so you can focus on building your life in the United States."
+        name={t("mariana.pi.bio.name")}
+        bio={t("mariana.imm.bio.text")}
         imageSrc="https://images.unsplash.com/photo-1551836022-d5d88e9218df?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80"
       />
       <MarianaSuccessStories />
       <MarianaFAQ 
         questions={[
-          {q: "How long does the immigration process take?", a: "Processing times vary wildly depending on the type of visa, your home country, and current USCIS backlogs. We will provide an estimate during your consultation based on the most recent data."},
-          {q: "Do I need a lawyer for my immigration case?", a: "While not strictly required by law, the immigration system is incredibly complex. A single mistake or omission can lead to years of delays or deportation. Professional representation gives you peace of mind."},
-          {q: "What documents do I need for my first appointment?", a: "Bring any notices or letters from USCIS, your passport, I-94 arrival record, and any criminal records. We will give you a comprehensive checklist tailored to your case type when you schedule."}
+          {q: t("mariana.imm.faq.1.q"), a: t("mariana.imm.faq.1.a")},
+          {q: t("mariana.imm.faq.2.q"), a: t("mariana.imm.faq.2.a")},
+          {q: t("mariana.imm.faq.3.q"), a: t("mariana.imm.faq.3.a")}
         ]}
       />
       <MarianaCTA />
