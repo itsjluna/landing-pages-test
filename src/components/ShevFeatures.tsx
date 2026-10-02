@@ -54,6 +54,7 @@ export const ShevStats = ({ stats, primaryColor }: { stats: { value: number, suf
 };
 
 export const ShevPracticeAreas = ({ areas, primaryColor }: { areas: { title: string, desc: string, icon: any }[], primaryColor: string }) => {
+  const { t } = useTranslation();
   const isRed = primaryColor === 'red';
   
   return (
@@ -67,7 +68,7 @@ export const ShevPracticeAreas = ({ areas, primaryColor }: { areas: { title: str
         >
           <div className={`w-12 h-1 bg-${isRed ? 'red-600' : 'blue-700'} mb-6`} />
           <h2 className="text-4xl md:text-5xl font-serif font-bold text-slate-900 uppercase tracking-wide">
-            Practice Areas
+            {t('Practice Areas')}
           </h2>
         </motion.div>
 
@@ -95,7 +96,7 @@ export const ShevPracticeAreas = ({ areas, primaryColor }: { areas: { title: str
                     {area.desc}
                   </p>
                   <div className={`flex items-center text-sm font-bold uppercase tracking-widest group-hover:text-white transition-colors duration-500 ${isRed ? 'text-red-600' : 'text-blue-700'}`}>
-                    Learn More <ArrowRight className="w-4 h-4 ml-2" />
+                    {t('Learn More')} <ArrowRight className="w-4 h-4 ml-2" />
                   </div>
                 </div>
               </motion.div>
@@ -108,6 +109,7 @@ export const ShevPracticeAreas = ({ areas, primaryColor }: { areas: { title: str
 };
 
 export const ShevFloatingContact = ({ primaryColor }: { primaryColor: string }) => {
+  const { t } = useTranslation();
   const bgClass = primaryColor === 'red' ? 'bg-red-600 hover:bg-red-700' : 'bg-blue-700 hover:bg-blue-800';
   
   return (
@@ -119,12 +121,13 @@ export const ShevFloatingContact = ({ primaryColor }: { primaryColor: string }) 
       className={`fixed bottom-0 right-0 sm:bottom-8 sm:right-8 z-50 flex items-center justify-center gap-3 ${bgClass} text-white px-6 py-4 shadow-2xl cursor-pointer w-full sm:w-auto`}
     >
       <MessageSquare className="w-5 h-5" />
-      <span className="font-bold uppercase tracking-widest text-sm">Free Evaluation</span>
+      <span className="font-bold uppercase tracking-widest text-sm">{t('Free Evaluation')}</span>
     </motion.a>
   );
 };
 
 export const ShevFooter = () => {
+  const { t } = useTranslation();
   return (
     <footer className="bg-slate-950 text-slate-400 py-16 px-6 sm:px-8 lg:px-16 border-t-[8px] border-slate-800">
       <div className="max-w-6xl mx-auto grid grid-cols-1 md:grid-cols-4 gap-12 mb-16">
@@ -134,7 +137,7 @@ export const ShevFooter = () => {
             <h2 className="text-2xl font-serif font-bold text-white tracking-widest uppercase">Shev Law Group</h2>
           </div>
           <p className="mb-8 leading-relaxed max-w-sm border-l-2 border-slate-700 pl-4">
-            Aggressive representation. Elite legal strategy. We demand justice and protect your enterprise.
+            {t('Shev Footer Desc')}
           </p>
           <div className="flex space-x-4">
             <a href="#" className="w-10 h-10 border border-slate-700 flex items-center justify-center hover:bg-white hover:text-slate-900 transition-colors cursor-pointer text-slate-400">
@@ -158,16 +161,16 @@ export const ShevFooter = () => {
         </div>
         
         <div>
-          <h3 className="text-white font-bold mb-6 uppercase tracking-widest text-xs">Practice Areas</h3>
+          <h3 className="text-white font-bold mb-6 uppercase tracking-widest text-xs">{t('Practice Areas')}</h3>
           <ul className="space-y-4 text-sm">
-            <li><Link to="/shev/personal-injury" className="hover:text-white transition-colors uppercase tracking-wider">Personal Injury</Link></li>
-            <li><Link to="/shev/immigration" className="hover:text-white transition-colors uppercase tracking-wider">Immigration</Link></li>
-            <li><Link to="/shev/business" className="hover:text-white transition-colors uppercase tracking-wider">Business Law</Link></li>
+            <li><Link to="/shev/personal-injury" className="hover:text-white transition-colors uppercase tracking-wider">{t('Personal Injury')}</Link></li>
+            <li><Link to="/shev/immigration" className="hover:text-white transition-colors uppercase tracking-wider">{t('Immigration')}</Link></li>
+            <li><Link to="/shev/business" className="hover:text-white transition-colors uppercase tracking-wider">{t('Business Law')}</Link></li>
           </ul>
         </div>
         
         <div>
-          <h3 className="text-white font-bold mb-6 uppercase tracking-widest text-xs">Headquarters</h3>
+          <h3 className="text-white font-bold mb-6 uppercase tracking-widest text-xs">{t('Headquarters')}</h3>
           <address className="not-italic space-y-3 text-sm">
             <p>500 Corporate Plaza</p>
             <p>Dallas, TX 75201</p>
@@ -179,10 +182,10 @@ export const ShevFooter = () => {
       
       <div className="max-w-6xl mx-auto pt-8 border-t border-slate-800 text-xs text-slate-600 leading-relaxed text-justify">
         <p className="mb-4">
-          <strong>LEGAL DISCLAIMER:</strong> The information contained in this website is provided for informational purposes only, and should not be construed as legal advice on any matter. The transmission and receipt of information contained on this Web site, in whole or in part, or communication with Shev Law Group via the Internet or e-mail through this website does not constitute or create a lawyer-client relationship between us and any recipient. 
+          {t('Shev Legal Disclaimer')}
         </p>
         <p>
-          Prior results do not guarantee a similar outcome. Each case is different and must be evaluated on its own merits. The firm's attorneys are licensed to practice in the state of Texas unless otherwise indicated. © {new Date().getFullYear()} Shev Law Group. All rights reserved.
+          {t('Shev Footer Copyright')}
         </p>
       </div>
     </footer>

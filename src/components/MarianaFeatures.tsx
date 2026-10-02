@@ -62,7 +62,7 @@ export const MarianaPracticeAreas = ({ areas }: { areas: { title: string, desc: 
           className="text-center mb-16"
         >
           <h2 className="text-4xl md:text-5xl font-bold mb-4 text-gray-900">
-            Áreas de Práctica
+            {t('Practice Areas')}
           </h2>
           <div className="w-24 h-1 bg-gradient-to-r from-blue-600 to-teal-400 mx-auto rounded-full" />
         </motion.div>
@@ -98,6 +98,7 @@ export const MarianaPracticeAreas = ({ areas }: { areas: { title: string, desc: 
 
 // --- Floating Contact Button ---
 export const MarianaFloatingContact = () => {
+  const { t } = useTranslation();
   return (
     <motion.a
       href="#"
@@ -110,7 +111,7 @@ export const MarianaFloatingContact = () => {
       style={{ boxShadow: '0 10px 25px -5px rgba(34, 197, 94, 0.5)' }}
     >
       <MessageCircle className="w-6 h-6" />
-      <span className="font-bold hidden sm:inline">Consulta Gratis</span>
+      <span className="font-bold hidden sm:inline">{t('Free Consultation')}</span>
       
       {/* Ripple effect */}
       <span className="absolute inset-0 rounded-full border-2 border-green-400 animate-ping opacity-75"></span>
@@ -120,13 +121,14 @@ export const MarianaFloatingContact = () => {
 
 // --- Premium Legal Footer ---
 export const MarianaFooter = () => {
+  const { t } = useTranslation();
   return (
     <footer className="bg-slate-950 text-gray-400 py-12 md:py-16 px-6 sm:px-8 lg:px-16 border-t border-white/5">
       <div className="max-w-6xl mx-auto grid grid-cols-1 md:grid-cols-4 gap-8 md:gap-12 mb-12">
         <div className="md:col-span-2">
           <h2 className="text-2xl font-bold text-white mb-6">Tu Abogada Mariana</h2>
           <p className="mb-6 leading-relaxed max-w-sm">
-            Defendiendo sus derechos con pasión, integridad y resultados comprobados. Estamos aquí para proteger a su familia y su futuro.
+            {t('Mariana Footer Desc')}
           </p>
           <div className="flex space-x-4">
             <a href="#" className="w-10 h-10 rounded-full bg-white/5 flex items-center justify-center hover:bg-teal-600 transition-colors cursor-pointer text-white">
@@ -150,17 +152,17 @@ export const MarianaFooter = () => {
         </div>
         
         <div>
-          <h3 className="text-white font-bold mb-6 uppercase tracking-wider text-sm">Enlaces Rápidos</h3>
+          <h3 className="text-white font-bold mb-6 uppercase tracking-wider text-sm">{t('Quick Links')}</h3>
           <ul className="space-y-3">
-            <li><Link to="/mariana/personal-injury" className="hover:text-teal-400 transition-colors">Daños Personales</Link></li>
-            <li><Link to="/mariana/immigration" className="hover:text-teal-400 transition-colors">Inmigración</Link></li>
-            <li><a href="#" className="hover:text-teal-400 transition-colors">Casos de Éxito</a></li>
-            <li><a href="#" className="hover:text-teal-400 transition-colors">Contáctanos</a></li>
+            <li><Link to="/mariana/personal-injury" className="hover:text-teal-400 transition-colors">{t('Personal Injury')}</Link></li>
+            <li><Link to="/mariana/immigration" className="hover:text-teal-400 transition-colors">{t('Immigration')}</Link></li>
+            <li><a href="#" className="hover:text-teal-400 transition-colors">{t('Success Stories')}</a></li>
+            <li><a href="#" className="hover:text-teal-400 transition-colors">{t('Contact Us')}</a></li>
           </ul>
         </div>
         
         <div>
-          <h3 className="text-white font-bold mb-6 uppercase tracking-wider text-sm">Oficina Principal</h3>
+          <h3 className="text-white font-bold mb-6 uppercase tracking-wider text-sm">{t('Main Office')}</h3>
           <address className="not-italic space-y-3">
             <p>1234 Legal Avenue, Suite 500</p>
             <p>Houston, TX 77002</p>
@@ -172,10 +174,10 @@ export const MarianaFooter = () => {
       
       <div className="max-w-6xl mx-auto pt-8 border-t border-white/10 text-xs text-gray-600 leading-relaxed text-justify">
         <p className="mb-4">
-          <strong>Disclaimer Legal:</strong> La información contenida en este sitio web se proporciona únicamente con fines informativos y no debe interpretarse como asesoramiento legal sobre ningún asunto. La transmisión y recepción de información a través de este sitio web, en su totalidad o en parte, o la comunicación con Tu Abogada Mariana a través de Internet o correo electrónico a través de este sitio web no constituye ni crea una relación abogado-cliente. No debe actuar ni abstenerse de actuar sobre la base de la información proporcionada en este sitio web sin buscar asesoramiento legal profesional o de otro tipo en su jurisdicción.
+          {t('Mariana Legal Disclaimer')}
         </p>
         <p>
-          Resultados pasados no garantizan resultados futuros. Cada caso es diferente y debe evaluarse por sus propios méritos. Los abogados de la firma están licenciados para ejercer en el estado de Texas a menos que se indique lo contrario. © {new Date().getFullYear()} Tu Abogada Mariana. Todos los derechos reservados.
+          {t('Mariana Footer Copyright')}
         </p>
       </div>
     </footer>
