@@ -20,8 +20,8 @@ function Navigation() {
       <div className="overflow-x-auto whitespace-nowrap hide-scrollbar pr-4 flex-1">
         <div className="flex gap-4 items-center inline-flex">
           <span className="font-bold hidden md:inline">Demos:</span>
-          <Link to="/mariana/personal-injury" className="text-purple-300 hover:text-white transition text-sm">Mariana PI</Link>
-          <Link to="/mariana/immigration" className="text-purple-300 hover:text-white transition text-sm">Mariana Imm</Link>
+          <Link to="/mariana/personal-injury" className="text-teal-300 hover:text-white transition text-sm">Mariana PI</Link>
+          <Link to="/mariana/immigration" className="text-teal-300 hover:text-white transition text-sm">Mariana Imm</Link>
           <span className="text-gray-500">|</span>
           <Link to="/shev/personal-injury" className="text-blue-300 hover:text-white transition text-sm">Shev PI</Link>
           <Link to="/shev/immigration" className="text-blue-300 hover:text-white transition text-sm">Shev Imm</Link>

@@ -8,7 +8,7 @@ const MarianaImmigration = () => {
   const { t } = useTranslation();
 
   return (
-    <div className="bg-[#0a0514]">
+    <div className="bg-slate-950">
       <MarianaHero 
         title={t("mariana.imm.hero.title")}
         subtitle={t("mariana.imm.hero.subtitle")}
