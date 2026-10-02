@@ -8,7 +8,7 @@ export const ShevHero = ({ title, subtitle, imageSrc, primaryColor }: { title: s
   const isRed = primaryColor === 'red';
   
   return (
-    <section className="relative flex flex-col lg:flex-row min-h-[85vh] bg-slate-50 text-slate-900 border-b-8 border-slate-900">
+    <section id="contact-form" className="relative flex flex-col lg:flex-row min-h-[85vh] bg-slate-50 text-slate-900 border-b-8 border-slate-900">
       <div className="flex-1 flex flex-col justify-center px-6 py-16 pt-20 sm:p-8 lg:p-16 xl:p-24 z-10 lg:w-1/2">
         <motion.div
           initial={{ opacity: 0, x: -30 }}
@@ -296,6 +296,98 @@ export const ShevFAQ = ({ questions, primaryColor }: { questions: {q: string, a:
           ))}
         </div>
       </div>
+    </section>
+  );
+};
+
+export const ShevWhyChooseUs = ({ points, primaryColor }: { points: { title: string, desc: string }[], primaryColor: string }) => {
+  const isRed = primaryColor === 'red';
+  const highlightHex = isRed ? '#dc2626' : '#1d4ed8';
+
+  return (
+    <section className="py-16 lg:py-24 px-6 sm:px-8 lg:px-16 bg-slate-100 relative border-t border-slate-200">
+      <div className="max-w-6xl mx-auto relative z-10">
+        <motion.div 
+          initial={{ opacity: 0, y: 20 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
+          className="text-center mb-16"
+        >
+          <h2 className="text-3xl sm:text-4xl md:text-5xl font-serif font-bold mb-6 text-slate-900 uppercase tracking-widest">
+            ¿Por qué elegirnos?
+          </h2>
+          <div className="w-24 h-1 mx-auto" style={{ backgroundColor: highlightHex }} />
+        </motion.div>
+        
+        <div className="grid md:grid-cols-3 gap-8">
+          {points.map((point, i) => (
+            <motion.div 
+              key={i}
+              initial={{ opacity: 0, y: 30 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              transition={{ delay: i * 0.1 }}
+              className="bg-white p-8 border border-slate-200 shadow-sm relative group hover:border-slate-400 transition-colors"
+            >
+              <div className="absolute top-0 left-0 w-full h-1 scale-x-0 group-hover:scale-x-100 transition-transform origin-left duration-300" style={{ backgroundColor: highlightHex }} />
+              <div className="text-4xl font-serif font-bold text-slate-200 mb-4 group-hover:text-slate-300 transition-colors">
+                0{i + 1}
+              </div>
+              <h3 className="text-xl font-bold font-serif text-slate-900 mb-4 uppercase tracking-wider">{point.title}</h3>
+              <p className="text-slate-600 leading-relaxed">{point.desc}</p>
+            </motion.div>
+          ))}
+        </div>
+      </div>
+    </section>
+  );
+};
+
+export const ShevCTA = ({ primaryColor }: { primaryColor: string }) => {
+  const { t } = useTranslation();
+  const isRed = primaryColor === 'red';
+  
+  const scrollToForm = (e: React.MouseEvent<HTMLAnchorElement>) => {
+    e.preventDefault();
+    const formElement = document.getElementById('contact-form');
+    if (formElement) {
+      formElement.scrollIntoView({ behavior: 'smooth' });
+    }
+  };
+
+  return (
+    <section className="relative py-24 px-6 sm:px-8 lg:px-16 flex items-center justify-center text-center border-t-8 border-slate-900">
+      <div className="absolute inset-0">
+        <img 
+          src="https://images.unsplash.com/photo-1505664194779-8beaceb93744?ixlib=rb-4.0.3&auto=format&fit=crop&w=1920&q=80" 
+          alt="CTA Background" 
+          className="w-full h-full object-cover object-center grayscale"
+        />
+        <div className="absolute inset-0 bg-slate-900/90" />
+      </div>
+      <motion.div 
+        initial={{ opacity: 0, y: 30 }}
+        whileInView={{ opacity: 1, y: 0 }}
+        viewport={{ once: true }}
+        className="relative z-10 max-w-4xl mx-auto"
+      >
+        <h2 className="text-4xl md:text-5xl lg:text-7xl font-serif font-bold text-white mb-8 uppercase tracking-widest">
+          Programe su consulta gratuita
+        </h2>
+        <div className="w-16 h-1 mx-auto mb-8" style={{ backgroundColor: isRed ? '#dc2626' : '#1d4ed8' }} />
+        <p className="text-xl text-slate-300 mb-10 max-w-2xl mx-auto font-serif italic">
+          No dude. Proteja sus intereses hoy. Contáctenos para una evaluación confidencial de su caso.
+        </p>
+        <a 
+          href="#contact-form" 
+          onClick={scrollToForm}
+          className="inline-block relative overflow-hidden px-12 py-5 text-white font-bold uppercase tracking-widest transition-colors duration-300 hover:bg-white hover:text-slate-900 rounded-none group border-2"
+          style={{ borderColor: isRed ? '#dc2626' : '#1d4ed8', backgroundColor: isRed ? '#dc2626' : '#1d4ed8' }}
+        >
+          <span className="relative z-10 group-hover:text-slate-900 transition-colors">Solicitar Evaluación</span>
+          <div className="absolute inset-0 w-full h-full bg-white transform -translate-x-full group-hover:translate-x-0 transition-transform duration-300 ease-out z-0"></div>
+        </a>
+      </motion.div>
     </section>
   );
 };

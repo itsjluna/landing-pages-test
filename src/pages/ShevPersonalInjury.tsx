@@ -1,6 +1,6 @@
 import React from 'react';
 import { useTranslation } from 'react-i18next';
-import { ShevHero, ShevBanner, ShevSuccessStories, ShevBiography, ShevFAQ } from '../components/ShevBlocks';
+import { ShevHero, ShevBanner, ShevSuccessStories, ShevBiography, ShevFAQ, ShevWhyChooseUs, ShevCTA } from '../components/ShevBlocks';
 import { ShevStats, ShevPracticeAreas, ShevFloatingContact, ShevFooter } from '../components/ShevFeatures';
 import { ShieldAlert, HeartHandshake, Briefcase } from 'lucide-react';
 
@@ -36,6 +36,14 @@ const ShevPersonalInjury = () => {
           { title: "Premises Liability", desc: "Securing maximum compensation for slip and fall accidents and negligent security.", icon: HeartHandshake }
         ]} 
       />
+      <ShevWhyChooseUs 
+        primaryColor={themeColor}
+        points={[
+          { title: "We Don't Settle for Less", desc: "Insurance companies know we are willing and ready to go to trial if they refuse to pay what your case is truly worth." },
+          { title: "Elite Legal Strategy", desc: "We utilize cutting-edge technology, expert witnesses, and aggressive discovery to build airtight cases." },
+          { title: "No Fee Guarantee", desc: "We finance your entire litigation. You pay absolutely nothing out of pocket unless we secure a verdict or settlement in your favor." }
+        ]}
+      />
       <ShevBiography 
         name="The Shev Legal Team"
         bio="Shev Law Group is a premier litigation firm in Texas. Our team of aggressive trial lawyers has recovered millions for injury victims.\n\nWe combine elite legal strategy with aggressive courtroom tactics. We do not settle for less than what our clients deserve."
@@ -51,6 +59,7 @@ const ShevPersonalInjury = () => {
           {q: "What if I was partially at fault?", a: "Texas follows modified comparative negligence. You can still recover damages as long as you were not more than 50% at fault."}
         ]}
       />
+      <ShevCTA primaryColor={themeColor} />
       <ShevFooter />
       <ShevFloatingContact primaryColor={themeColor} />
     </div>

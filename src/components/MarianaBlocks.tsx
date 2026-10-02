@@ -6,7 +6,7 @@ import { ChevronDown, Play } from 'lucide-react';
 export const MarianaHero = ({ title, subtitle, imageSrc }: { title: string, subtitle: string, imageSrc: string }) => {
   const { t } = useTranslation();
   return (
-    <section className="relative flex flex-col lg:flex-row min-h-[85vh] bg-[#0a0514] text-white overflow-hidden">
+    <section id="contact-form" className="relative flex flex-col lg:flex-row min-h-[85vh] bg-[#0a0514] text-white overflow-hidden">
       {/* Background ambient gradient */}
       <div className="absolute top-0 left-0 w-[500px] h-[500px] bg-purple-900/30 rounded-full blur-[120px] -translate-x-1/2 -translate-y-1/2 pointer-events-none" />
       
@@ -280,6 +280,91 @@ export const MarianaFAQ = ({ questions }: { questions: {q: string, a: string}[] 
           ))}
         </div>
       </div>
+    </section>
+  );
+};
+
+export const MarianaWhyChooseUs = ({ points }: { points: { title: string, desc: string }[] }) => {
+  return (
+    <section className="py-16 lg:py-24 px-6 sm:px-8 lg:px-16 bg-purple-50 relative overflow-hidden">
+      <div className="absolute top-0 left-0 w-full h-full bg-[url('https://www.transparenttextures.com/patterns/cubes.png')] opacity-10 mix-blend-overlay"></div>
+      <div className="max-w-6xl mx-auto relative z-10">
+        <motion.div 
+          initial={{ opacity: 0, y: 20 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
+          className="text-center mb-16"
+        >
+          <h2 className="text-3xl sm:text-4xl md:text-5xl font-bold mb-4 text-purple-950">
+            ¿Por qué elegirnos?
+          </h2>
+          <div className="w-24 h-1 bg-gradient-to-r from-purple-600 to-purple-400 mx-auto rounded-full" />
+        </motion.div>
+        <div className="grid md:grid-cols-3 gap-8">
+          {points.map((point, i) => (
+            <motion.div 
+              key={i}
+              initial={{ opacity: 0, y: 30 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              transition={{ delay: i * 0.1 }}
+              className="bg-white p-8 rounded-[2rem] shadow-lg shadow-purple-900/5 text-center group hover:-translate-y-2 transition-transform duration-300"
+            >
+              <div className="w-16 h-16 mx-auto bg-purple-100 text-purple-600 rounded-full flex items-center justify-center font-bold text-2xl mb-6 group-hover:bg-purple-600 group-hover:text-white transition-colors duration-300">
+                {i + 1}
+              </div>
+              <h3 className="text-xl font-bold text-gray-900 mb-4">{point.title}</h3>
+              <p className="text-gray-600 leading-relaxed">{point.desc}</p>
+            </motion.div>
+          ))}
+        </div>
+      </div>
+    </section>
+  );
+};
+
+export const MarianaCTA = () => {
+  const { t } = useTranslation();
+  
+  const scrollToForm = (e: React.MouseEvent<HTMLAnchorElement>) => {
+    e.preventDefault();
+    const formElement = document.getElementById('contact-form');
+    if (formElement) {
+      formElement.scrollIntoView({ behavior: 'smooth' });
+    }
+  };
+
+  return (
+    <section className="relative py-24 px-6 sm:px-8 lg:px-16 overflow-hidden flex items-center justify-center text-center">
+      <div className="absolute inset-0">
+        <img 
+          src="https://images.unsplash.com/photo-1589829085413-56de8ae18c73?ixlib=rb-4.0.3&auto=format&fit=crop&w=1920&q=80" 
+          alt="CTA Background" 
+          className="w-full h-full object-cover object-center"
+        />
+        <div className="absolute inset-0 bg-purple-950/80 backdrop-blur-sm" />
+      </div>
+      <motion.div 
+        initial={{ opacity: 0, scale: 0.95 }}
+        whileInView={{ opacity: 1, scale: 1 }}
+        viewport={{ once: true }}
+        className="relative z-10 max-w-3xl mx-auto"
+      >
+        <h2 className="text-4xl md:text-5xl lg:text-6xl font-bold text-white mb-6">
+          Programe su consulta gratuita
+        </h2>
+        <p className="text-xl text-purple-200 mb-10 max-w-2xl mx-auto">
+          No espere más. Su futuro y su tranquilidad son nuestra prioridad. Estamos aquí para guiarle en cada paso del proceso.
+        </p>
+        <a 
+          href="#contact-form" 
+          onClick={scrollToForm}
+          className="inline-block relative overflow-hidden px-10 py-5 text-white font-bold text-lg rounded-full shadow-lg shadow-purple-900/50 bg-gradient-to-r from-purple-600 to-purple-400 hover:from-purple-500 hover:to-purple-300 transition-all duration-300 hover:-translate-y-1 group"
+        >
+          <span className="relative z-10">Agenda tu Cita Hoy</span>
+          <div className="absolute top-0 -inset-full h-full w-1/2 z-5 block transform -skew-x-12 bg-gradient-to-r from-transparent via-white/40 to-transparent opacity-40 group-hover:animate-[shine_1.5s_ease-in-out_infinite]"></div>
+        </a>
+      </motion.div>
     </section>
   );
 };

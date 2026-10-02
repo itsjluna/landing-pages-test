@@ -1,6 +1,6 @@
 import React from 'react';
 import { useTranslation } from 'react-i18next';
-import { MarianaHero, MarianaBanner, MarianaSuccessStories, MarianaBiography, MarianaFAQ } from '../components/MarianaBlocks';
+import { MarianaHero, MarianaBanner, MarianaSuccessStories, MarianaBiography, MarianaFAQ, MarianaWhyChooseUs, MarianaCTA } from '../components/MarianaBlocks';
 import { MarianaStats, MarianaPracticeAreas, MarianaFloatingContact, MarianaFooter, MarianaTrustBadges } from '../components/MarianaFeatures';
 import { ShieldAlert, HeartHandshake, Briefcase } from 'lucide-react';
 
@@ -27,6 +27,11 @@ const MarianaPersonalInjury = () => {
         { title: "Accidentes de Trabajo", desc: "Sufrir una lesión en el trabajo puede dejarlo sin ingresos. Le ayudamos a obtener su compensación laboral.", icon: Briefcase },
         { title: "Resbalones y Caídas", desc: "Los dueños de propiedades deben mantener sus lugares seguros. Si cayó por negligencia, tiene derechos.", icon: HeartHandshake }
       ]} />
+      <MarianaWhyChooseUs points={[
+        { title: "No Cobramos Si No Ganamos", desc: "Su tranquilidad es primero. No nos pagará un centavo a menos que recuperemos una compensación para usted." },
+        { title: "Millones Recuperados", desc: "Tenemos un historial comprobado de maximizar los acuerdos y veredictos contra las grandes aseguradoras." },
+        { title: "Atención 100% en Español", desc: "Le explicaremos cada detalle legal en su propio idioma, con empatía y claridad absoluta." }
+      ]} />
       <MarianaBiography 
         name="Mariana"
         bio="Mariana is a dedicated personal injury attorney serving Texas. With years of experience fighting insurance companies, she ensures her clients get the maximum compensation.\n\nShe believes in aggressive representation and compassionate client care. Her team leaves no stone unturned when investigating accidents, dealing with medical providers, and negotiating settlements."
@@ -40,6 +45,7 @@ const MarianaPersonalInjury = () => {
           {q: "Will my case go to trial?", a: "Most personal injury cases settle out of court, but we prepare every case as if it will go to trial. This aggressive preparation often forces insurance companies to offer better settlements."}
         ]}
       />
+      <MarianaCTA />
       <MarianaFooter />
       <MarianaFloatingContact />
     </div>

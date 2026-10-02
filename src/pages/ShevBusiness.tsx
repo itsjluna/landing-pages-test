@@ -1,6 +1,6 @@
 import React from 'react';
 import { useTranslation } from 'react-i18next';
-import { ShevHero, ShevBanner, ShevSuccessStories, ShevBiography, ShevFAQ } from '../components/ShevBlocks';
+import { ShevHero, ShevBanner, ShevSuccessStories, ShevBiography, ShevFAQ, ShevWhyChooseUs, ShevCTA } from '../components/ShevBlocks';
 import { ShevStats, ShevPracticeAreas, ShevFloatingContact, ShevFooter } from '../components/ShevFeatures';
 import { Building2, Scale, Handshake } from 'lucide-react';
 
@@ -36,6 +36,14 @@ const ShevBusiness = () => {
           { title: "M&A Transactions", desc: "Expert counsel for mergers, acquisitions, and major corporate restructuring.", icon: Handshake }
         ]} 
       />
+      <ShevWhyChooseUs 
+        primaryColor={themeColor}
+        points={[
+          { title: "Outside General Counsel", desc: "We act as your dedicated legal department, providing proactive advice to prevent issues before they become expensive lawsuits." },
+          { title: "Deal Makers, Not Breakers", desc: "We facilitate your business growth by drafting watertight contracts that protect you while getting the deal done." },
+          { title: "High-Stakes Litigation", desc: "When disputes arise, we bring elite trial experience to defend your enterprise aggressively in state and federal courts." }
+        ]}
+      />
       <ShevBiography 
         name="The Shev Legal Team"
         bio="Our business attorneys act as outside general counsel for mid-market and emerging companies across Texas.\n\nFrom formation and contracts to M&A and commercial litigation, we deliver sophisticated legal solutions that drive business success."
@@ -51,6 +59,7 @@ const ShevBusiness = () => {
           {q: "Can you help resolve a dispute with my business partner?", a: "We handle partnership disputes and breach of fiduciary duty claims, aiming for efficient resolution but prepared for aggressive litigation if necessary."}
         ]}
       />
+      <ShevCTA primaryColor={themeColor} />
       <ShevFooter />
       <ShevFloatingContact primaryColor={themeColor} />
     </div>

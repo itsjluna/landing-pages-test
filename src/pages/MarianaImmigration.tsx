@@ -1,6 +1,6 @@
 import React from 'react';
 import { useTranslation } from 'react-i18next';
-import { MarianaHero, MarianaBanner, MarianaSuccessStories, MarianaBiography, MarianaFAQ } from '../components/MarianaBlocks';
+import { MarianaHero, MarianaBanner, MarianaSuccessStories, MarianaBiography, MarianaFAQ, MarianaWhyChooseUs, MarianaCTA } from '../components/MarianaBlocks';
 import { MarianaStats, MarianaPracticeAreas, MarianaFloatingContact, MarianaFooter, MarianaTrustBadges } from '../components/MarianaFeatures';
 import { Globe, FileCheck2, Building2 } from 'lucide-react';
 
@@ -27,6 +27,11 @@ const MarianaImmigration = () => {
         { title: "Ciudadanía y Naturalización", desc: "Le preparamos para su entrevista y examen cívico para que pueda lograr el sueño americano y convertirse en ciudadano.", icon: FileCheck2 },
         { title: "Defensa de Deportación", desc: "Si enfrenta un proceso de remoción, necesita representación agresiva en la corte de inmigración inmediatamente.", icon: Building2 }
       ]} />
+      <MarianaWhyChooseUs points={[
+        { title: "Honestidad Radical", desc: "Le diremos exactamente qué esperar de su caso desde el primer día, sin falsas promesas ni costos ocultos." },
+        { title: "Comunicación Constante", desc: "Usted tendrá acceso directo a nuestro equipo. Jamás lo dejaremos en la oscuridad durante meses como hacen otros." },
+        { title: "Dedicación Exclusiva", desc: "La ley de inmigración es compleja y cambia constantemente. Nosotros nos dedicamos exclusivamente a proteger su futuro aquí." }
+      ]} />
       <MarianaBiography 
         name="Mariana"
         bio="Mariana is passionate about helping immigrants achieve the American dream. She handles family-based petitions, naturalization, and deportation defense with profound dedication.\n\nHer mission is to navigate the complex immigration system for you, ensuring that every form is perfect and every deadline is met, so you can focus on building your life in the United States."
@@ -40,6 +45,7 @@ const MarianaImmigration = () => {
           {q: "What documents do I need for my first appointment?", a: "Bring any notices or letters from USCIS, your passport, I-94 arrival record, and any criminal records. We will give you a comprehensive checklist tailored to your case type when you schedule."}
         ]}
       />
+      <MarianaCTA />
       <MarianaFooter />
       <MarianaFloatingContact />
     </div>

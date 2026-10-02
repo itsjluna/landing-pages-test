@@ -1,6 +1,6 @@
 import React from 'react';
 import { useTranslation } from 'react-i18next';
-import { ShevHero, ShevBanner, ShevSuccessStories, ShevBiography, ShevFAQ } from '../components/ShevBlocks';
+import { ShevHero, ShevBanner, ShevSuccessStories, ShevBiography, ShevFAQ, ShevWhyChooseUs, ShevCTA } from '../components/ShevBlocks';
 import { ShevStats, ShevPracticeAreas, ShevFloatingContact, ShevFooter } from '../components/ShevFeatures';
 import { Globe, FileCheck2, Building2 } from 'lucide-react';
 
@@ -36,6 +36,14 @@ const ShevImmigration = () => {
           { title: "Deportation Defense", desc: "Aggressive representation in immigration court to protect your right to stay in the U.S.", icon: FileCheck2 }
         ]} 
       />
+      <ShevWhyChooseUs 
+        primaryColor={themeColor}
+        points={[
+          { title: "Corporate Expertise", desc: "We understand business. We align your immigration strategy with your corporate growth and talent acquisition goals." },
+          { title: "Global Reach", desc: "Our attorneys handle complex consular processing and global mobility challenges across all U.S. embassies." },
+          { title: "Relentless Advocacy", desc: "In the face of government pushback or deportation proceedings, we litigate aggressively to protect our clients." }
+        ]}
+      />
       <ShevBiography 
         name="The Shev Legal Team"
         bio="Our immigration department handles both employment-based visas for multinational corporations and complex family petitions.\n\nWe provide strategic, results-driven immigration counsel, ensuring compliance and success in a rapidly changing legal landscape."
@@ -51,6 +59,7 @@ const ShevImmigration = () => {
           {q: "What is an E-2 Visa?", a: "The E-2 Treaty Investor visa allows nationals of certain countries to direct and develop a U.S. business they have invested in. We can evaluate your eligibility."}
         ]}
       />
+      <ShevCTA primaryColor={themeColor} />
       <ShevFooter />
       <ShevFloatingContact primaryColor={themeColor} />
     </div>
