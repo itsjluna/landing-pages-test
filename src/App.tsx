@@ -1,5 +1,6 @@
-import { BrowserRouter as Router, Routes, Route, Link } from 'react-router-dom';
+﻿import { BrowserRouter as Router, Routes, Route, Link } from 'react-router-dom';
 import { useTranslation } from 'react-i18next';
+import React from 'react';
 
 // Pages
 import MarianaPersonalInjury from './pages/MarianaPersonalInjury';
@@ -8,8 +9,22 @@ import ShevPersonalInjury from './pages/ShevPersonalInjury';
 import ShevImmigration from './pages/ShevImmigration';
 import ShevBusiness from './pages/ShevBusiness';
 
+const LanguageToggle = () => {
+  const { i18n } = useTranslation();
+  return (
+    <div className="absolute top-4 right-4 z-[100]">
+      <button 
+        onClick={() => i18n.changeLanguage(i18n.language === 'en' ? 'es' : 'en')}
+        className="px-4 py-2 bg-black/40 hover:bg-black/60 text-white backdrop-blur-md rounded-full shadow-lg border border-white/20 transition-all font-bold text-sm"
+      >
+        {i18n.language === 'en' ? 'ESPAÑOL' : 'ENGLISH'}
+      </button>
+    </div>
+  );
+};
+
 function Navigation() {
-  const { t, i18n } = useTranslation();
+  const { i18n } = useTranslation();
 
   const toggleLanguage = () => {
     i18n.changeLanguage(i18n.language === 'en' ? 'es' : 'en');
@@ -48,9 +63,30 @@ function Home() {
 }
 
 function App() {
+  // Use VITE_SITE environment variable to conditionally render a specific site
+  // This allows building standalone sites (tree-shaking the unused ones)
+  const site = import.meta.env.VITE_SITE || '';
+
+  if (site === 'mariana-pi') {
+    return <><LanguageToggle /><MarianaPersonalInjury /></>;
+  }
+  if (site === 'mariana-imm') {
+    return <><LanguageToggle /><MarianaImmigration /></>;
+  }
+  if (site === 'shev-pi') {
+    return <><LanguageToggle /><ShevPersonalInjury /></>;
+  }
+  if (site === 'shev-imm') {
+    return <><LanguageToggle /><ShevImmigration /></>;
+  }
+  if (site === 'shev-biz') {
+    return <><LanguageToggle /><ShevBusiness /></>;
+  }
+
+  // Fallback to the demo router
   return (
     <Router>
-      <div className="min-h-screen flex flex-col font-sans text-gray-800">
+      <div className="min-h-screen flex flex-col font-sans text-gray-800 relative">
         <Navigation />
         <main className="flex-grow">
           <Routes>
