@@ -83,6 +83,33 @@ function App() {
     return <><LanguageToggle /><ShevBusiness /></>;
   }
 
+  if (site === 'shev-group') {
+    return (
+      <Router>
+        <LanguageToggle />
+        <Routes>
+          <Route path="/personal-injury" element={<ShevPersonalInjury />} />
+          <Route path="/immigration" element={<ShevImmigration />} />
+          <Route path="/business" element={<ShevBusiness />} />
+          <Route path="*" element={<ShevPersonalInjury />} />
+        </Routes>
+      </Router>
+    );
+  }
+
+  if (site === 'mariana-group') {
+    return (
+      <Router>
+        <LanguageToggle />
+        <Routes>
+          <Route path="/personal-injury" element={<MarianaPersonalInjury />} />
+          <Route path="/immigration" element={<MarianaImmigration />} />
+          <Route path="*" element={<MarianaPersonalInjury />} />
+        </Routes>
+      </Router>
+    );
+  }
+
   // Fallback to the demo router
   return (
     <Router>
