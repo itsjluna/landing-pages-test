@@ -118,7 +118,7 @@ export const ShevSuccessStories = ({ primaryColor, videoUrls }: { primaryColor: 
   const getEmbedUrl = (url: string) => {
     if (url.includes('tiktok.com')) {
       const videoId = url.split('/video/')[1]?.split('?')[0];
-      return videoId ? `https://www.tiktok.com/embed/v2/${videoId}` : null;
+      return videoId ? `https://www.tiktok.com/player/v1/${videoId}?music_info=1&description=1` : null;
     }
     if (url.includes('instagram.com')) {
       const cleanUrl = url.split('?')[0].replace(/\/$/, '');
