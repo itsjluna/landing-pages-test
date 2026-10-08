@@ -49,13 +49,13 @@ const ShevPersonalInjury = () => {
           primaryColor={themeColor}
           attorneys={[
             {
-              name: t("shev.pi.bio.name"),
-              bio: t("shev.pi.bio.text"),
+              name: t("shev.attorney1.name"),
+              bio: t("shev.attorney1.bio"),
               imageSrc: "/images/pi/attorney1.png"
             },
             {
-              name: t("shev.pi.bio.name2", "Associate Attorney"),
-              bio: t("shev.pi.bio.text2", "A dedicated trial lawyer with a passion for holding insurance companies accountable. Brings years of rigorous courtroom experience to the Shev Legal Team."),
+              name: t("shev.attorney2.name"),
+              bio: t("shev.attorney2.bio"),
               imageSrc: "/images/pi/attorney2.png"
             }
           ]}

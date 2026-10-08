@@ -49,13 +49,13 @@ const ShevImmigration = () => {
           primaryColor={themeColor}
           attorneys={[
             {
-              name: t("shev.pi.bio.name"),
-              bio: t("shev.imm.bio.text"),
+              name: t("shev.attorney1.name"),
+              bio: t("shev.attorney1.bio"),
               imageSrc: "/images/imm/attorney1.png"
             },
             {
-              name: t("shev.pi.bio.name2", "Associate Attorney"),
-              bio: t("shev.imm.bio.text2", "Specializing in corporate immigration and global mobility, ensuring our clients can bring top talent across borders with zero compliance issues."),
+              name: t("shev.attorney2.name"),
+              bio: t("shev.attorney2.bio"),
               imageSrc: "/images/imm/attorney2.png"
             }
           ]}

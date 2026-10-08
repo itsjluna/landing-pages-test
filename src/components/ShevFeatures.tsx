@@ -113,8 +113,7 @@ export const ShevFloatingContact = ({ primaryColor }: { primaryColor: string }) 
   const bgClass = primaryColor === 'red' ? 'bg-red-600 hover:bg-red-700' : 'bg-blue-700 hover:bg-blue-800';
   
   return (
-    <motion.a
-      href="#"
+    <motion.a href="tel:2814298083"
       initial={{ x: 100, opacity: 0 }}
       animate={{ x: 0, opacity: 1 }}
       transition={{ delay: 1, duration: 0.6, ease: "easeOut" }}
@@ -191,3 +190,4 @@ export const ShevFooter = () => {
     </footer>
   );
 };
+
