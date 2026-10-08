@@ -3,59 +3,62 @@ import re
 
 content = codecs.open('src/components/ShevBlocks.tsx', 'r', 'utf-8').read()
 
-new_component = '''export const ShevBiography = ({ attorneys, primaryColor }: { attorneys: { name: string, bio: string, imageSrc: string }[], primaryColor: string }) => {
+if 'import { TikTokEmbed, InstagramEmbed } from' not in content:
+    content = content.replace(\"import { Building2, FileCheck2, Briefcase, GraduationCap, Globe, Play, ChevronRight, Star } from 'lucide-react';\", \"import { Building2, FileCheck2, Briefcase, GraduationCap, Globe, Play, ChevronRight, Star } from 'lucide-react';\nimport { TikTokEmbed, InstagramEmbed } from 'react-social-media-embed';\")
+
+new_component = '''export const ShevSuccessStories = ({ primaryColor, videoUrls }: { primaryColor: string, videoUrls?: string[] }) => {
   const { t } = useTranslation();
-  const highlightClass = primaryColor === 'red' ? 'text-red-600' : 'text-blue-700';
-  const bgClass = primaryColor === 'red' ? 'bg-red-600' : 'bg-blue-700';
+  const isRed = primaryColor === 'red';
+  const highlightHex = isRed ? '#dc2626' : '#1d4ed8';
+
+  const defaultVideos = [
+    \"https://www.tiktok.com/@tiktok/video/7106594312292453675\",
+    \"https://www.instagram.com/reel/C8q_o3dO0A1/\"
+  ];
+  
+  const videos = videoUrls || defaultVideos;
 
   return (
-    <section className=\"py-16 lg:py-24 px-6 sm:px-8 lg:px-16 bg-slate-50 relative\">
+    <section className=\"py-16 lg:py-24 px-6 sm:px-8 lg:px-16 bg-slate-900 text-white relative\">
       <div className=\"max-w-7xl mx-auto\">
-        <h2 className={	ext-sm uppercase tracking-[0.2em] font-bold mb-4 \ text-center}>
-          {t('Meet Our Team')}
-        </h2>
-        <div className=\"flex justify-center\">
-          <h3 className=\"text-3xl sm:text-4xl lg:text-5xl font-serif font-bold text-slate-900 mb-16 text-center border-b-4 border-slate-900 pb-4 inline-block\">
-            {t('About the Attorneys')}
-          </h3>
-        </div>
-
-        <div className=\"flex flex-col gap-24\">
-          {attorneys.map((attorney, idx) => (
-            <div key={idx} className={lex flex-col \ gap-12 lg:gap-16 items-start relative z-10}>
-              <motion.div 
-                initial={{ opacity: 0, x: idx % 2 === 1 ? 30 : -30 }}
-                whileInView={{ opacity: 1, x: 0 }}
-                viewport={{ once: true }}
-                className=\"w-full sm:w-80 lg:w-[350px] h-[400px] sm:h-[450px] flex-shrink-0 relative group mx-auto lg:mx-0\"
-              >
-                <img src={attorney.imageSrc} alt={attorney.name} className=\"w-full h-full object-cover grayscale group-hover:grayscale-0 transition-all duration-700 border border-slate-300\" />
-                <div className={bsolute -bottom-4 \ w-24 h-24 \ z-[-1]} />
-                <div className={bsolute -top-4 \ w-24 h-24 border-t-4 border-slate-900 z-[-1] \} />
-              </motion.div>
-              
-              <motion.div
-                initial={{ opacity: 0, x: idx % 2 === 1 ? -30 : 30 }}
-                whileInView={{ opacity: 1, x: 0 }}
-                viewport={{ once: true }}
-                className=\"flex-1\"
-              >
-                <h4 className=\"text-2xl sm:text-3xl font-serif font-bold text-slate-900 mb-6\">
-                  {attorney.name}
-                </h4>
-                <div className=\"text-slate-600 text-base sm:text-lg leading-relaxed whitespace-pre-line border-l-4 border-slate-200 pl-6\">
-                  {attorney.bio}
+        <motion.div 
+          initial={{ opacity: 0, y: 20 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
+          className=\"mb-12 sm:mb-16 flex items-center justify-between border-b border-slate-700 pb-6\"
+        >
+          <h2 className=\"text-3xl sm:text-4xl md:text-5xl font-serif font-bold\">
+            {t('Success Stories')}
+          </h2>
+          <div className=\"w-16 h-1 hidden md:block\" style={{ backgroundColor: highlightHex }} />
+        </motion.div>
+        
+        <div className=\"grid md:grid-cols-2 gap-8 mb-16 justify-items-center\">
+          {videos.map((url, i) => (
+            <motion.div 
+              key={i}
+              initial={{ opacity: 0, y: 30 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              transition={{ delay: i * 0.1 }}
+              className=\"w-full max-w-[325px] flex items-center justify-center relative\"
+            >
+              {url.includes('tiktok.com') ? (
+                <TikTokEmbed url={url} width={325} />
+              ) : url.includes('instagram.com') ? (
+                <InstagramEmbed url={url} width={325} />
+              ) : (
+                <div className=\"w-full aspect-[9/16] bg-slate-800 flex items-center justify-center border border-slate-700\">
+                  <span className=\"text-slate-500\">Invalid URL</span>
                 </div>
-              </motion.div>
-            </div>
+              )}
+            </motion.div>
           ))}
         </div>
-      </div>
-    </section>
-  );
-};
+
+        <div className=\"grid md:grid-cols-2 gap-12\">
 '''
 
-content = re.sub(r'export const ShevBiography =.*?export const ShevSuccessStories', new_component + '\nexport const ShevSuccessStories', content, flags=re.DOTALL)
+content = re.sub(r'export const ShevSuccessStories = \(\{ primaryColor \}: \{ primaryColor: string \}\) => \{.*?<div className="grid md:grid-cols-2 gap-12">', new_component, content, flags=re.DOTALL)
 
 codecs.open('src/components/ShevBlocks.tsx', 'w', 'utf-8').write(content)

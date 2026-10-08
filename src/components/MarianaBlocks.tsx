@@ -1,6 +1,7 @@
-import React, { useState } from 'react';
+﻿import React, { useState } from 'react';
 import { useTranslation } from 'react-i18next';
 import { motion, AnimatePresence } from 'framer-motion';
+import { TikTokEmbed, InstagramEmbed } from 'react-social-media-embed';
 import { ChevronDown, Play } from 'lucide-react';
 
 export const MarianaHero = ({ title, subtitle, imageSrc }: { title: string, subtitle: string, imageSrc: string }) => {
@@ -101,8 +102,15 @@ export const MarianaBanner = ({ text }: { text: string }) => {
   );
 };
 
-export const MarianaSuccessStories = () => {
+export const MarianaSuccessStories = ({ videoUrls }: { videoUrls?: string[] }) => {
   const { t } = useTranslation();
+
+  const defaultVideos = [
+    "https://www.tiktok.com/@tiktok/video/7106594312292453675",
+    "https://www.instagram.com/reel/C8q_o3dO0A1/"
+  ];
+  const videos = videoUrls || defaultVideos;
+
   return (
     <section className="py-16 lg:py-24 px-6 sm:px-8 lg:px-16 bg-slate-50 text-gray-900 relative">
       <div className="max-w-7xl mx-auto">
@@ -118,24 +126,25 @@ export const MarianaSuccessStories = () => {
           <div className="w-24 h-1 bg-gradient-to-r from-blue-600 to-teal-400 mx-auto rounded-full" />
         </motion.div>
         
-        <div className="grid md:grid-cols-2 gap-12 mb-20">
-          {[1, 2].map((i) => (
+        <div className="grid md:grid-cols-2 gap-12 mb-20 justify-items-center">
+          {videos.map((url, i) => (
             <motion.div 
               key={i}
               initial={{ opacity: 0, y: 30 }}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
               transition={{ delay: i * 0.1 }}
-              whileHover={{ y: -10 }}
-              className="aspect-video bg-gray-900 rounded-2xl flex items-center justify-center relative overflow-hidden group shadow-2xl cursor-pointer"
+              className="w-full max-w-[325px] flex justify-center relative"
             >
-              <img src={i === 1 ? "https://images.unsplash.com/photo-1573164713988-8665fc963095?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" : "https://images.unsplash.com/photo-1521791136064-7986c2920216?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80"} alt="Video" className="absolute inset-0 w-full h-full object-cover opacity-70 group-hover:opacity-40 transition-opacity duration-500"/>
-              
-              <div className="absolute inset-0 bg-gradient-to-t from-teal-900/80 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
-              
-              <div className="z-10 w-20 h-20 bg-white/20 backdrop-blur-md rounded-full flex items-center justify-center shadow-lg group-hover:scale-110 group-hover:bg-teal-600 transition-all duration-500">
-                <Play className="text-white w-8 h-8 ml-1" fill="currentColor" />
-              </div>
+              {url.includes('tiktok.com') ? (
+                <TikTokEmbed url={url} width={325} />
+              ) : url.includes('instagram.com') ? (
+                <InstagramEmbed url={url} width={325} />
+              ) : (
+                <div className="w-full aspect-[9/16] bg-slate-200 rounded-2xl flex items-center justify-center">
+                  <span className="text-slate-500">Invalid URL</span>
+                </div>
+              )}
             </motion.div>
           ))}
         </div>

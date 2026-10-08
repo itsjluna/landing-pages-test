@@ -1,7 +1,8 @@
-import React, { useState } from 'react';
+﻿import React, { useState } from 'react';
 import { useTranslation } from 'react-i18next';
 import { motion, AnimatePresence } from 'framer-motion';
 import { Plus, Minus, Play } from 'lucide-react';
+import { TikTokEmbed, InstagramEmbed } from 'react-social-media-embed';
 
 export const ShevHero = ({ title, subtitle, imageSrc, primaryColor }: { title: string, subtitle: string, imageSrc: string, primaryColor: string }) => {
   const { t } = useTranslation();
@@ -103,10 +104,17 @@ export const ShevBanner = ({ text, color }: { text: string, color: string }) => 
   );
 };
 
-export const ShevSuccessStories = ({ primaryColor }: { primaryColor: string }) => {
+export const ShevSuccessStories = ({ primaryColor, videoUrls }: { primaryColor: string, videoUrls?: string[] }) => {
   const { t } = useTranslation();
   const isRed = primaryColor === 'red';
   const highlightHex = isRed ? '#dc2626' : '#1d4ed8';
+
+  const defaultVideos = [
+    "https://www.tiktok.com/@tiktok/video/7106594312292453675",
+    "https://www.instagram.com/reel/C8q_o3dO0A1/"
+  ];
+  
+  const videos = videoUrls || defaultVideos;
 
   return (
     <section className="py-16 lg:py-24 px-6 sm:px-8 lg:px-16 bg-slate-900 text-white relative">
@@ -123,26 +131,30 @@ export const ShevSuccessStories = ({ primaryColor }: { primaryColor: string }) =
           <div className="w-16 h-1 hidden md:block" style={{ backgroundColor: highlightHex }} />
         </motion.div>
         
-        <div className="grid md:grid-cols-2 gap-8 mb-16">
-          {[1, 2].map((i) => (
+        <div className="grid md:grid-cols-2 gap-8 mb-16 justify-items-center">
+          {videos.map((url, i) => (
             <motion.div 
               key={i}
               initial={{ opacity: 0, y: 30 }}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
               transition={{ delay: i * 0.1 }}
-              className="aspect-video bg-slate-800 flex items-center justify-center relative overflow-hidden group border border-slate-700 hover:border-slate-500 transition-colors"
+              className="w-full max-w-[325px] flex justify-center relative"
             >
-              <img src={i === 1 ? "https://images.unsplash.com/photo-1573164713988-8665fc963095?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" : "https://images.unsplash.com/photo-1521791136064-7986c2920216?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80"} alt="Video" className="absolute inset-0 w-full h-full object-cover opacity-60 group-hover:opacity-40 transition-opacity duration-500 grayscale"/>
-              
-              <div className="z-10 w-20 h-20 bg-slate-900/80 border border-slate-600 flex items-center justify-center group-hover:scale-110 transition-all duration-300" style={{ borderLeftColor: highlightHex, borderLeftWidth: '4px' }}>
-                <Play className="text-white w-8 h-8 ml-1" fill="currentColor" />
-              </div>
+              {url.includes('tiktok.com') ? (
+                <TikTokEmbed url={url} width={325} />
+              ) : url.includes('instagram.com') ? (
+                <InstagramEmbed url={url} width={325} />
+              ) : (
+                <div className="w-full aspect-[9/16] bg-slate-800 flex items-center justify-center border border-slate-700">
+                  <span className="text-slate-500">Invalid URL</span>
+                </div>
+              )}
             </motion.div>
           ))}
         </div>
 
-          <div className="grid grid-cols-1 gap-8 max-w-4xl mx-auto">
+        <div className="grid grid-cols-1 gap-8 max-w-4xl mx-auto">
             {[
               {
                 id: "01",
