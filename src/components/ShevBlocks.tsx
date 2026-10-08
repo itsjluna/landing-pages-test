@@ -2,7 +2,6 @@
 import { useTranslation } from 'react-i18next';
 import { motion, AnimatePresence } from 'framer-motion';
 import { Plus, Minus, Play } from 'lucide-react';
-import { TikTokEmbed, InstagramEmbed } from 'react-social-media-embed';
 
 export const ShevHero = ({ title, subtitle, imageSrc, primaryColor }: { title: string, subtitle: string, imageSrc: string, primaryColor: string }) => {
   const { t } = useTranslation();
@@ -116,6 +115,18 @@ export const ShevSuccessStories = ({ primaryColor, videoUrls }: { primaryColor: 
   
   const videos = videoUrls || defaultVideos;
 
+  const getEmbedUrl = (url: string) => {
+    if (url.includes('tiktok.com')) {
+      const videoId = url.split('/video/')[1]?.split('?')[0];
+      return videoId ? `https://www.tiktok.com/embed/v2/${videoId}` : null;
+    }
+    if (url.includes('instagram.com')) {
+      const cleanUrl = url.split('?')[0].replace(/\/$/, '');
+      return `${cleanUrl}/embed`;
+    }
+    return null;
+  };
+
   return (
     <section className="py-16 lg:py-24 px-6 sm:px-8 lg:px-16 bg-slate-900 text-white relative">
       <div className="max-w-7xl mx-auto">
@@ -132,29 +143,38 @@ export const ShevSuccessStories = ({ primaryColor, videoUrls }: { primaryColor: 
         </motion.div>
         
         <div className="grid md:grid-cols-2 gap-8 mb-16 justify-items-center">
-          {videos.map((url, i) => (
-            <motion.div 
-              key={i}
-              initial={{ opacity: 0, y: 30 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true }}
-              transition={{ delay: i * 0.1 }}
-              className="w-full max-w-[325px] flex justify-center relative"
-            >
-              {url.includes('tiktok.com') ? (
-                <TikTokEmbed url={url} width={325} />
-              ) : url.includes('instagram.com') ? (
-                <InstagramEmbed url={url} width={325} />
-              ) : (
-                <div className="w-full aspect-[9/16] bg-slate-800 flex items-center justify-center border border-slate-700">
-                  <span className="text-slate-500">Invalid URL</span>
-                </div>
-              )}
-            </motion.div>
-          ))}
+          {videos.map((url, i) => {
+            const embedUrl = getEmbedUrl(url);
+            return (
+              <motion.div 
+                key={i}
+                initial={{ opacity: 0, y: 30 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true }}
+                transition={{ delay: i * 0.1 }}
+                className="w-full max-w-[325px] flex justify-center relative bg-slate-800 rounded-xl overflow-hidden shadow-2xl border border-slate-700"
+              >
+                {embedUrl ? (
+                  <iframe 
+                    src={embedUrl}
+                    className="w-full h-[600px] sm:h-[700px] border-0"
+                    allowFullScreen
+                    scrolling="no"
+                    allow="encrypted-media;"
+                  />
+                ) : (
+                  <div className="w-full h-[600px] flex items-center justify-center">
+                    <span className="text-slate-500">Invalid URL</span>
+                  </div>
+                )}
+              </motion.div>
+            );
+          })}
         </div>
 
         <div className="grid grid-cols-1 gap-8 max-w-4xl mx-auto">
+
+
             {[
               {
                 id: "01",
