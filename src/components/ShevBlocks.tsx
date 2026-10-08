@@ -404,7 +404,7 @@ export const ShevCTA = ({ primaryColor }: { primaryColor: string }) => {
     <section className="relative py-24 px-6 sm:px-8 lg:px-16 flex items-center justify-center text-center border-t-8 border-slate-900">
       <div className="absolute inset-0">
         <img 
-          src="https://images.unsplash.com/photo-1505664194779-8beaceb93744?ixlib=rb-4.0.3&auto=format&fit=crop&w=1920&q=80" 
+          src="/images/shared/form-bg.png" 
           alt="CTA Background" 
           className="w-full h-full object-cover object-center grayscale"
         />

@@ -14,7 +14,7 @@ const ShevPersonalInjury = () => {
       <ShevHero 
         title={t("shev.pi.hero.title")}
         subtitle={t("shev.pi.hero.subtitle")}
-        imageSrc="https://images.unsplash.com/photo-1556761175-5973dc0f32b7?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80"
+        imageSrc="/images/pi/hero.png"
         primaryColor={themeColor}
       />
       <ShevStats 
@@ -51,12 +51,12 @@ const ShevPersonalInjury = () => {
             {
               name: t("shev.pi.bio.name"),
               bio: t("shev.pi.bio.text"),
-              imageSrc: "https://images.unsplash.com/photo-1556761175-5973dc0f32b7?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80"
+              imageSrc: "/images/pi/attorney1.png"
             },
             {
               name: t("shev.pi.bio.name2", "Associate Attorney"),
               bio: t("shev.pi.bio.text2", "A dedicated trial lawyer with a passion for holding insurance companies accountable. Brings years of rigorous courtroom experience to the Shev Legal Team."),
-              imageSrc: "https://images.unsplash.com/photo-1560250097-0b93528c311a?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80"
+              imageSrc: "/images/pi/attorney2.png"
             }
           ]}
         />

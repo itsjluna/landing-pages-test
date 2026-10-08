@@ -14,7 +14,7 @@ const ShevImmigration = () => {
       <ShevHero 
         title={t("shev.imm.hero.title")}
         subtitle={t("shev.imm.hero.subtitle")}
-        imageSrc="https://images.unsplash.com/photo-1520694478166-daaaaec95b69?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80"
+        imageSrc="/images/imm/hero.png"
         primaryColor={themeColor}
       />
       <ShevStats 
@@ -51,12 +51,12 @@ const ShevImmigration = () => {
             {
               name: t("shev.pi.bio.name"),
               bio: t("shev.imm.bio.text"),
-              imageSrc: "https://images.unsplash.com/photo-1520694478166-daaaaec95b69?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80"
+              imageSrc: "/images/imm/attorney1.png"
             },
             {
               name: t("shev.pi.bio.name2", "Associate Attorney"),
               bio: t("shev.imm.bio.text2", "Specializing in corporate immigration and global mobility, ensuring our clients can bring top talent across borders with zero compliance issues."),
-              imageSrc: "https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80"
+              imageSrc: "/images/imm/attorney2.png"
             }
           ]}
         />
