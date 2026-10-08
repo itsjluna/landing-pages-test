@@ -60,7 +60,7 @@ const ShevBusiness = () => {
             }
           ]}
         />
-      <ShevSuccessStories primaryColor={themeColor} videoUrls={["https://vt.tiktok.com/ZSbsUtkF2/", "https://vt.tiktok.com/ZSbsUnX1C/"]} />
+      <ShevSuccessStories primaryColor={themeColor} videoUrls={["https://www.tiktok.com/@shev.law.group/video/7660589016797957407", "https://www.tiktok.com/@shev.law.group/video/7675825757737733406"]} />
       <ShevFAQ 
         primaryColor={themeColor}
         questions={[

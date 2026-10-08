@@ -60,7 +60,7 @@ const ShevPersonalInjury = () => {
             }
           ]}
         />
-      <ShevSuccessStories primaryColor={themeColor} videoUrls={["https://vt.tiktok.com/ZSbsUn418/", "https://vt.tiktok.com/ZSbsy1H1b/"]} />
+      <ShevSuccessStories primaryColor={themeColor} videoUrls={["https://www.tiktok.com/@shev.law.group/video/7688823230446046494", "https://www.tiktok.com/@shev.law.group/video/7685488437675216158"]} />
       <ShevFAQ 
         primaryColor={themeColor}
         questions={[
