@@ -46,11 +46,20 @@ const ShevBusiness = () => {
         ]}
       />
       <ShevBiography 
-        name={t("shev.pi.bio.name")}
-        bio={t("shev.biz.bio.text")}
-        imageSrc="https://images.unsplash.com/photo-1556761175-4b46a572b786?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80"
-        primaryColor={themeColor}
-      />
+          primaryColor={themeColor}
+          attorneys={[
+            {
+              name: t("shev.pi.bio.name"),
+              bio: t("shev.biz.bio.text"),
+              imageSrc: "https://images.unsplash.com/photo-1556761175-4b46a572b786?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80"
+            },
+            {
+              name: t("shev.pi.bio.name2", "Associate Attorney"),
+              bio: t("shev.biz.bio.text2", "A fierce litigator representing emerging and middle-market enterprises in complex commercial disputes, M&A, and partnership agreements."),
+              imageSrc: "https://images.unsplash.com/photo-1580489944761-15a19d654956?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80"
+            }
+          ]}
+        />
       <ShevSuccessStories primaryColor={themeColor} />
       <ShevFAQ 
         primaryColor={themeColor}

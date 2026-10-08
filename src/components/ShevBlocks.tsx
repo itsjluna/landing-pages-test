@@ -194,45 +194,57 @@ export const ShevSuccessStories = ({ primaryColor }: { primaryColor: string }) =
   );
 };
 
-export const ShevBiography = ({ name, bio, imageSrc, primaryColor }: { name: string, bio: string, imageSrc: string, primaryColor: string }) => {
+export const ShevBiography = ({ attorneys, primaryColor }: { attorneys: { name: string, bio: string, imageSrc: string }[], primaryColor: string }) => {
   const { t } = useTranslation();
   const highlightClass = primaryColor === 'red' ? 'text-red-600' : 'text-blue-700';
   const bgClass = primaryColor === 'red' ? 'bg-red-600' : 'bg-blue-700';
 
   return (
     <section className="py-16 lg:py-24 px-6 sm:px-8 lg:px-16 bg-slate-50 relative">
-      <div className="max-w-6xl mx-auto flex flex-col lg:flex-row gap-12 lg:gap-16 items-start relative z-10">
-        <motion.div 
-          initial={{ opacity: 0, x: -30 }}
-          whileInView={{ opacity: 1, x: 0 }}
-          viewport={{ once: true }}
-          className="w-full sm:w-80 lg:w-[400px] h-[400px] sm:h-[500px] flex-shrink-0 relative group"
-        >
-          <img src={imageSrc} alt={name} className="w-full h-full object-cover grayscale group-hover:grayscale-0 transition-all duration-700 border border-slate-300" />
-          <div className={`absolute -bottom-4 -right-4 w-24 h-24 ${bgClass} z-[-1]`} />
-          <div className="absolute -top-4 -left-4 w-24 h-24 border-t-4 border-l-4 border-slate-900 z-[-1]" />
-        </motion.div>
-        
-        <motion.div
-          initial={{ opacity: 0, x: 30 }}
-          whileInView={{ opacity: 1, x: 0 }}
-          viewport={{ once: true }}
-          className="lg:mt-8 flex-1"
-        >
-          <h2 className={`text-sm uppercase tracking-[0.2em] font-bold mb-4 ${highlightClass}`}>
-            {t('About the Attorney')}
-          </h2>
-          <h3 className="text-3xl sm:text-4xl lg:text-5xl font-serif font-bold text-slate-900 mb-8 border-b-4 border-slate-900 pb-4 inline-block">
-            {name}
+      <div className="max-w-7xl mx-auto">
+        <h2 className={`text-sm uppercase tracking-[0.2em] font-bold mb-4 ${highlightClass} text-center`}>
+          {t('Meet Our Team')}
+        </h2>
+        <div className="flex justify-center">
+          <h3 className="text-3xl sm:text-4xl lg:text-5xl font-serif font-bold text-slate-900 mb-16 text-center border-b-4 border-slate-900 pb-4 inline-block">
+            {t('About the Attorneys')}
           </h3>
-          <div className="text-lg text-slate-700 leading-relaxed space-y-6 text-justify font-serif">
-            {bio.split('\n\n').map((paragraph, i) => (
-              <p key={i} className={i === 0 ? "first-letter:text-6xl first-letter:font-bold first-letter:text-slate-900 first-letter:mr-2 first-letter:float-left first-letter:leading-[0.8] first-letter:mt-1" : ""}>
-                {paragraph}
-              </p>
-            ))}
-          </div>
-        </motion.div>
+        </div>
+
+        <div className="flex flex-col gap-24">
+          {attorneys.map((attorney, idx) => (
+            <div key={idx} className={`flex flex-col ${idx % 2 === 1 ? 'lg:flex-row-reverse' : 'lg:flex-row'} gap-12 lg:gap-16 items-start relative z-10`}>
+              <motion.div 
+                initial={{ opacity: 0, x: idx % 2 === 1 ? 30 : -30 }}
+                whileInView={{ opacity: 1, x: 0 }}
+                viewport={{ once: true }}
+                className="w-full sm:w-80 lg:w-[350px] h-[400px] sm:h-[450px] flex-shrink-0 relative group mx-auto lg:mx-0"
+              >
+                <img src={attorney.imageSrc} alt={attorney.name} className="w-full h-full object-cover grayscale group-hover:grayscale-0 transition-all duration-700 border border-slate-300" />
+                <div className={`absolute -bottom-4 ${idx % 2 === 1 ? '-left-4' : '-right-4'} w-24 h-24 ${bgClass} z-[-1]`} />
+                <div className={`absolute -top-4 ${idx % 2 === 1 ? '-right-4' : '-left-4'} w-24 h-24 border-t-4 border-slate-900 z-[-1] ${idx % 2 === 1 ? 'border-r-4' : 'border-l-4'}`} />
+              </motion.div>
+              
+              <motion.div
+                initial={{ opacity: 0, x: idx % 2 === 1 ? -30 : 30 }}
+                whileInView={{ opacity: 1, x: 0 }}
+                viewport={{ once: true }}
+                className="flex-1"
+              >
+                <h4 className="text-2xl sm:text-3xl font-serif font-bold text-slate-900 mb-6">
+                  {attorney.name}
+                </h4>
+                <div className="text-lg text-slate-700 leading-relaxed space-y-6 text-justify font-serif">
+                  {attorney.bio.split('\n\n').map((paragraph, i) => (
+                    <p key={i} className={i === 0 ? "first-letter:text-6xl first-letter:font-bold first-letter:text-slate-900 first-letter:mr-2 first-letter:float-left first-letter:leading-[0.8] first-letter:mt-1" : ""}>
+                      {paragraph}
+                    </p>
+                  ))}
+                </div>
+              </motion.div>
+            </div>
+          ))}
+        </div>
       </div>
     </section>
   );
