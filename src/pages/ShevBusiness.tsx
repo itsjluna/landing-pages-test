@@ -60,7 +60,7 @@ const ShevBusiness = () => {
             }
           ]}
         />
-      <ShevSuccessStories primaryColor={themeColor} />
+      <ShevSuccessStories primaryColor={themeColor} videoUrls={["https://vt.tiktok.com/ZSbsUtkF2/", "https://vt.tiktok.com/ZSbsUnX1C/"]} />
       <ShevFAQ 
         primaryColor={themeColor}
         questions={[

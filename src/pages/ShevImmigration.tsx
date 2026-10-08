@@ -60,7 +60,7 @@ const ShevImmigration = () => {
             }
           ]}
         />
-      <ShevSuccessStories primaryColor={themeColor} />
+      <ShevSuccessStories primaryColor={themeColor} videoUrls={["https://vt.tiktok.com/ZSbsUbEtp/", "https://vt.tiktok.com/ZSbsUoadr/"]} />
       <ShevFAQ 
         primaryColor={themeColor}
         questions={[
