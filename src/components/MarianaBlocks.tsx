@@ -368,7 +368,7 @@ export const MarianaCTA = () => {
     <section className="relative py-24 px-6 sm:px-8 lg:px-16 overflow-hidden flex items-center justify-center text-center">
       <div className="absolute inset-0">
         <img 
-          src="https://images.unsplash.com/photo-1589829085413-56de8ae18c73?ixlib=rb-4.0.3&auto=format&fit=crop&w=1920&q=80" 
+          src="/images/pi/form-bg.png" 
           alt="CTA Background" 
           className="w-full h-full object-cover object-center"
         />
@@ -398,4 +398,5 @@ export const MarianaCTA = () => {
     </section>
   );
 };
+
 
