@@ -33,7 +33,7 @@ const MarianaPersonalInjury = () => {
         { title: t("mariana.pi.why.3.title"), desc: t("mariana.pi.why.3.desc") }
       ]} />
       <MarianaBiography 
-        name={t("mariana.pi.bio.name")}
+        name={t("mariana.pi.bio.name", "Mariana Ehrenberg")}
         bio={t("mariana.pi.bio.text")}
         imageSrc="/images/mariana/pi/bio.png"
       />
@@ -56,5 +56,6 @@ const MarianaPersonalInjury = () => {
 };
 
 export default MarianaPersonalInjury;
+
 
 
