@@ -111,7 +111,7 @@ export const MarianaFloatingContact = () => {
       style={{ boxShadow: '0 10px 25px -5px rgba(34, 197, 94, 0.5)' }}
     >
       <MessageCircle className="w-6 h-6" />
-      <span className="font-bold hidden sm:inline">{t('Free Consultation')}</span>
+      <span className="font-bold hidden sm:inline">{t('Request Evaluation')}</span>
       
       {/* Ripple effect */}
       <span className="absolute inset-0 rounded-full border-2 border-green-400 animate-ping opacity-75"></span>
@@ -197,3 +197,4 @@ export const MarianaTrustBadges = () => {
     </div>
   );
 };
+

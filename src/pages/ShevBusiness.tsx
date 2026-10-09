@@ -1,4 +1,4 @@
-﻿import React from 'react';
+import React from 'react';
 import { useTranslation } from 'react-i18next';
 import { Helmet } from 'react-helmet-async';
 import { ShevHero, ShevBanner, ShevSuccessStories, ShevBiography, ShevFAQ, ShevWhyChooseUs, ShevCTA } from '../components/ShevBlocks';
@@ -26,7 +26,7 @@ const ShevBusiness = () => {
         ]} 
       />
       <ShevBanner 
-        text={t("Business Consultation Banner")}
+        text={t("Book your consultation now")}
         color="#0f172a" // slate-900
       />
       <ShevPracticeAreas 
@@ -77,3 +77,4 @@ const ShevBusiness = () => {
 };
 
 export default ShevBusiness;
+

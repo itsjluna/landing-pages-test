@@ -1,4 +1,4 @@
-﻿import React, { useState } from 'react';
+import React, { useState } from 'react';
 import { useTranslation } from 'react-i18next';
 import { motion, AnimatePresence } from 'framer-motion';
 import { ChevronDown, Play } from 'lucide-react';
@@ -381,7 +381,7 @@ export const MarianaCTA = () => {
         className="relative z-10 max-w-3xl mx-auto"
       >
         <h2 className="text-4xl md:text-5xl lg:text-6xl font-bold text-white mb-6">
-          {t("Schedule your free consultation")}
+          {t("Schedule your consultation")}
         </h2>
         <p className="text-xl text-teal-200 mb-10 max-w-2xl mx-auto">
           {t("Don't wait any longer. Your future and peace of mind are our priority. We are here to guide you every step of the process.")}
@@ -398,3 +398,4 @@ export const MarianaCTA = () => {
     </section>
   );
 };
+

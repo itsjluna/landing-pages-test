@@ -417,7 +417,7 @@ export const ShevCTA = ({ primaryColor }: { primaryColor: string }) => {
         className="relative z-10 max-w-4xl mx-auto"
       >
         <h2 className="text-4xl md:text-5xl lg:text-7xl font-serif font-bold text-white mb-8 uppercase tracking-widest">
-          {t("Schedule your free consultation")}
+          {t("Schedule your consultation")}
         </h2>
         <div className="w-16 h-1 mx-auto mb-8" style={{ backgroundColor: isRed ? '#dc2626' : '#1d4ed8' }} />
         <p className="text-xl text-slate-300 mb-10 max-w-2xl mx-auto font-serif italic">
@@ -436,4 +436,5 @@ export const ShevCTA = ({ primaryColor }: { primaryColor: string }) => {
     </section>
   );
 };
+
 

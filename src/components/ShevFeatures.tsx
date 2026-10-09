@@ -120,7 +120,7 @@ export const ShevFloatingContact = ({ primaryColor }: { primaryColor: string }) 
       className={`fixed bottom-0 right-0 sm:bottom-8 sm:right-8 z-50 flex items-center justify-center gap-3 ${bgClass} text-white px-6 py-4 shadow-2xl cursor-pointer w-full sm:w-auto`}
     >
       <MessageSquare className="w-5 h-5" />
-      <span className="font-bold uppercase tracking-widest text-sm">{t('Free Evaluation')}</span>
+      <span className="font-bold uppercase tracking-widest text-sm">{t('Request Evaluation')}</span>
     </motion.a>
   );
 };
@@ -190,4 +190,5 @@ export const ShevFooter = () => {
     </footer>
   );
 };
+
 
