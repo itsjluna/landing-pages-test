@@ -37,7 +37,10 @@ const MarianaPersonalInjury = () => {
         bio={t("mariana.pi.bio.text")}
         imageSrc="/images/mariana/pi/bio.png"
       />
-      <MarianaSuccessStories />
+      <MarianaSuccessStories videoUrls={[
+        "https://www.tiktok.com/@tuabogadamariana/video/7685471966345579806",
+        "https://www.tiktok.com/@tuabogadamariana/video/7683212877582421262"
+      ]} />
       <MarianaFAQ 
         questions={[
           {q: t("mariana.pi.faq.1.q"), a: t("mariana.pi.faq.1.a")},
