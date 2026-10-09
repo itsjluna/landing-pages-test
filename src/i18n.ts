@@ -144,7 +144,21 @@ const resources = {
       "shev.attorney1.bio": "Brian Ehrenberg’s exceptional legal skills have earned him numerous honors, including the TDCLA’s Rising Star, Excellence in Appellate Advocacy by the Appellate Section of the State Bar of Texas, and Super Lawyer Rising Star for the past three years. His commitment to sharing his knowledge is evident through his presentations at TDCLA and AILA events and his role as a professor, where he taught Asylum and Refugee Law.\n\nEducation\nThurgood Marshall School of Law – Summa Cum Laude\nBachelor of History – Texas Tech University\n\nBar Admissions\nThe State of Texas\nU.S. District Court for the Northern, Eastern, and Southern Districts of Texas\nThe Fifth Circuit U.S. Court of Appeals\nThe Supreme Court of the United States\nUnited States Immigration Court\nU.S. District Court for the District of New Mexico",
       "shev.attorney2.name": "Divjyot Singh",
       "shev.attorney2.bio": "Divjyot Singh brings nearly two decades of expertise in investing, developing, and maintaining businesses. After a successful career in real estate holdings, Mr. Singh pursued a legal degree and graduated at the top of his class. He also serves as a director at one of the largest Gurdwaras in the Southern United States.\n\nEducation\nThurgood Marshall School of Law – Valedictorian\nUniversity of Houston\n\nBar Admissions\nThe State of Texas"
-    }
+    ,
+      "footer.about.title": "About Us",
+      "footer.about.desc": "SHEV Law Group provides expert legal services with offices in Houston and Dallas. Our dedicated team is committed to delivering personalized legal solutions to meet your unique needs.",
+      "footer.guide.title": "Legal Guide",
+      "footer.guide.1": "Shev Law Group: The Personal Injury Law Firm in Dallas & Houston, You can Trust",
+      "footer.guide.2": "Good News for International Travelers - Soon They Be Able to Pay $750 for Faster US Visa Appointments!",
+      "footer.guide.3": "Trusted Immigration Attorneys in Houston & Dallas",
+      "footer.guide.4": "U.S Deportation and Removal",
+      "footer.guide.5": "How Criminal Defense and Immigration Attorneys Can Collaborate for Powerful Client Advocacy",
+      "footer.practice.title": "Practice Areas",
+      "footer.practice.1": "Immigration",
+      "footer.practice.2": "Business Transactions",
+      "footer.practice.3": "Asset Protection",
+      "footer.practice.4": "Estate Planning & Administration",
+      "footer.practice.5": "Real Estates Transactions",}
   },
   es: {
     translation: {
@@ -288,7 +302,21 @@ const resources = {
       "shev.attorney1.bio": "Las excepcionales habilidades legales de Brian Ehrenberg le han valido numerosos honores, incluyendo Rising Star de TDCLA, Excelencia en Defensa de Apelaciones por la Sección de Apelaciones del Colegio de Abogados de Texas, y Super Lawyer Rising Star durante los últimos tres años. Su compromiso de compartir su conocimiento es evidente a través de sus presentaciones en eventos de TDCLA y AILA, y su rol como profesor enseñando Derecho de Asilo y Refugiados.\n\nEducación\nThurgood Marshall School of Law – Summa Cum Laude\nLicenciatura en Historia – Texas Tech University\n\nAdmisiones al Colegio de Abogados\nEstado de Texas\nTribunal de Distrito de EE. UU. para los Distritos Norte, Este y Sur de Texas\nTribunal de Apelaciones del Quinto Circuito de EE. UU.\nCorte Suprema de los Estados Unidos\nTribunal de Inmigración de los Estados Unidos\nTribunal de Distrito de EE. UU. para el Distrito de Nuevo México",
       "shev.attorney2.name": "Divjyot Singh",
       "shev.attorney2.bio": "Divjyot Singh aporta casi dos décadas de experiencia invirtiendo, desarrollando y manteniendo negocios. Después de una exitosa carrera en inversiones inmobiliarias, el Sr. Singh cursó la carrera de derecho y se graduó como el primero de su clase. También se desempeña como director en uno de los Gurdwaras más grandes del sur de los Estados Unidos.\n\nEducación\nThurgood Marshall School of Law – Valedictorian (Primer Puesto)\nUniversity of Houston\n\nAdmisiones al Colegio de Abogados\nEstado de Texas"
-    }
+    ,
+      "footer.about.title": "Sobre Nosotros",
+      "footer.about.desc": "SHEV Law Group ofrece servicios legales expertos con oficinas en Houston y Dallas. Nuestro equipo dedicado se compromete a brindar soluciones legales personalizadas para satisfacer sus necesidades únicas.",
+      "footer.guide.title": "Guía Legal",
+      "footer.guide.1": "Shev Law Group: La Firma de Abogados de Lesiones Personales en Dallas y Houston en la que Puede Confiar",
+      "footer.guide.2": "Buenas Noticias para Viajeros Internacionales - Pronto Podrán Pagar $750 por Citas Más Rápidas para Visas de EE. UU.",
+      "footer.guide.3": "Abogados de Inmigración de Confianza en Houston y Dallas",
+      "footer.guide.4": "Deportación y Remoción en EE. UU.",
+      "footer.guide.5": "Cómo los Abogados de Defensa Criminal y de Inmigración Pueden Colaborar para una Poderosa Defensa del Cliente",
+      "footer.practice.title": "Áreas de Práctica",
+      "footer.practice.1": "Inmigración",
+      "footer.practice.2": "Transacciones Comerciales",
+      "footer.practice.3": "Protección de Activos",
+      "footer.practice.4": "Planificación y Administración Patrimonial",
+      "footer.practice.5": "Transacciones de Bienes Raíces",}
   }
 };
 
