@@ -12,7 +12,7 @@ const MarianaImmigration = () => {
       <MarianaHero 
         title={t("mariana.imm.hero.title")}
         subtitle={t("mariana.imm.hero.subtitle")}
-        imageSrc="https://images.unsplash.com/photo-1551836022-d5d88e9218df?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80"
+        imageSrc="/images/mariana/imm/hero.png"
       />
       <MarianaStats stats={[
         { value: 1500, suffix: "+", label: t("mariana.imm.stats.1.label") },
@@ -35,7 +35,7 @@ const MarianaImmigration = () => {
       <MarianaBiography 
         name={t("mariana.pi.bio.name")}
         bio={t("mariana.imm.bio.text")}
-        imageSrc="https://images.unsplash.com/photo-1551836022-d5d88e9218df?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80"
+        imageSrc="/images/mariana/imm/bio.png"
       />
       <MarianaSuccessStories />
       <MarianaFAQ 
@@ -53,3 +53,5 @@ const MarianaImmigration = () => {
 };
 
 export default MarianaImmigration;
+
+

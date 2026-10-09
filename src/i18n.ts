@@ -147,6 +147,11 @@ const resources = {
     ,
       "footer.about.title": "About Us",
       "footer.about.desc": "SHEV Law Group provides expert legal services with offices in Houston and Dallas. Our dedicated team is committed to delivering personalized legal solutions to meet your unique needs.",
+      "mariana.footer.about.desc": "Tu Abogada Mariana provides expert legal services with offices in Houston and Dallas. Our dedicated team is committed to delivering personalized legal solutions to meet your unique needs.",
+
+      "Mariana Legal Disclaimer": "This page provides general information and does not create an attorney-client relationship. Prior results do not guarantee a similar outcome. Every matter is evaluated according to its individual facts and applicable law.",
+      "Mariana Footer Copyright": "© 2024 Tu Abogada Mariana. All Rights Reserved.",
+
       "footer.guide.title": "Legal Guide",
       "footer.guide.1": "Shev Law Group: The Personal Injury Law Firm in Dallas & Houston, You can Trust",
       "footer.guide.2": "Good News for International Travelers - Soon They Be Able to Pay $750 for Faster US Visa Appointments!",
@@ -305,6 +310,11 @@ const resources = {
     ,
       "footer.about.title": "Sobre Nosotros",
       "footer.about.desc": "SHEV Law Group ofrece servicios legales expertos con oficinas en Houston y Dallas. Nuestro equipo dedicado se compromete a brindar soluciones legales personalizadas para satisfacer sus necesidades únicas.",
+      "mariana.footer.about.desc": "Tu Abogada Mariana ofrece servicios legales expertos con oficinas en Houston y Dallas. Nuestro equipo dedicado se compromete a brindar soluciones legales personalizadas para satisfacer sus necesidades únicas.",
+
+      "Mariana Legal Disclaimer": "Los resultados migratorios no pueden garantizarse. Cada decisión depende de los hechos, la evidencia, la ley aplicable y la determinación de la agencia o del tribunal correspondiente. Esta página contiene información general y no crea una relación abogado-cliente.",
+      "Mariana Footer Copyright": "© 2024 Tu Abogada Mariana. Todos los derechos reservados.",
+
       "footer.guide.title": "Guía Legal",
       "footer.guide.1": "Shev Law Group: La Firma de Abogados de Lesiones Personales en Dallas y Houston en la que Puede Confiar",
       "footer.guide.2": "Buenas Noticias para Viajeros Internacionales - Pronto Podrán Pagar $750 por Citas Más Rápidas para Visas de EE. UU.",

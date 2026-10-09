@@ -12,7 +12,7 @@ const MarianaPersonalInjury = () => {
       <MarianaHero 
         title={t("mariana.pi.hero.title")}
         subtitle={t("mariana.pi.hero.subtitle")}
-        imageSrc="https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80"
+        imageSrc="/images/mariana/pi/hero.png"
       />
       <MarianaStats stats={[
         { value: 50, suffix: "M+", label: t("mariana.pi.stats.1.label") },
@@ -35,7 +35,7 @@ const MarianaPersonalInjury = () => {
       <MarianaBiography 
         name={t("mariana.pi.bio.name")}
         bio={t("mariana.pi.bio.text")}
-        imageSrc="https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80"
+        imageSrc="/images/mariana/pi/bio.png"
       />
       <MarianaSuccessStories />
       <MarianaFAQ 
@@ -53,3 +53,5 @@ const MarianaPersonalInjury = () => {
 };
 
 export default MarianaPersonalInjury;
+
+
