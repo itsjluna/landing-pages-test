@@ -1,11 +1,76 @@
 import React, { useState } from 'react';
 import { useTranslation } from 'react-i18next';
 import { motion, AnimatePresence } from 'framer-motion';
-import { Plus, Minus, Play } from 'lucide-react';
+import { Plus, Minus } from 'lucide-react';
 
-export const ShevHero = ({ title, subtitle, imageSrc, primaryColor }: { title: string, subtitle: string, imageSrc: string, primaryColor: string }) => {
+export type ShevThemeColor = 'red' | 'blue' | 'navy';
+
+export interface ShevThemeConfig {
+  name: ShevThemeColor;
+  hex: string;
+  bannerBg: string;
+  lineBg: string;
+  textClass: string;
+  borderClass: string;
+  btnBg: string;
+  accentBoxBg: string;
+  highlightHex: string;
+}
+
+export const getShevTheme = (color: string): ShevThemeConfig => {
+  if (color === 'red') {
+    return {
+      name: 'red',
+      hex: '#dc2626',
+      bannerBg: '#dc2626',
+      lineBg: 'bg-red-600',
+      textClass: 'text-red-600',
+      borderClass: 'border-red-600',
+      btnBg: 'bg-red-600 hover:bg-red-700',
+      accentBoxBg: 'bg-red-600',
+      highlightHex: '#dc2626',
+    };
+  }
+  if (color === 'navy') {
+    return {
+      name: 'navy',
+      hex: '#0f2347',
+      bannerBg: '#0f2347',
+      lineBg: 'bg-[#0f2347]',
+      textClass: 'text-[#0f2347]',
+      borderClass: 'border-[#0f2347]',
+      btnBg: 'bg-[#0f2347] hover:bg-slate-900',
+      accentBoxBg: 'bg-[#0f2347]',
+      highlightHex: '#0f2347',
+    };
+  }
+  // Default blue
+  return {
+    name: 'blue',
+    hex: '#1d4ed8',
+    bannerBg: '#1d4ed8',
+    lineBg: 'bg-blue-700',
+    textClass: 'text-blue-700',
+    borderClass: 'border-blue-700',
+    btnBg: 'bg-blue-700 hover:bg-blue-800',
+    accentBoxBg: 'bg-blue-700',
+    highlightHex: '#1d4ed8',
+  };
+};
+
+export const ShevHero = ({ 
+  title, 
+  subtitle, 
+  imageSrc, 
+  primaryColor = 'blue' 
+}: { 
+  title: string, 
+  subtitle: string, 
+  imageSrc: string, 
+  primaryColor?: string 
+}) => {
   const { t } = useTranslation();
-  const isRed = primaryColor === 'red';
+  const theme = getShevTheme(primaryColor);
   
   return (
     <section id="contact-form" className="relative flex flex-col lg:flex-row min-h-[85vh] bg-slate-50 text-slate-900 border-b-8 border-slate-900">
@@ -16,7 +81,7 @@ export const ShevHero = ({ title, subtitle, imageSrc, primaryColor }: { title: s
           transition={{ duration: 0.6, ease: "easeOut" }}
         >
           <div className="flex items-center space-x-4 mb-6">
-            <div className={`w-12 h-1 bg-${isRed ? 'red-600' : 'blue-700'}`} />
+            <div className={`w-12 h-1 ${theme.lineBg}`} />
             <span className="uppercase tracking-[0.2em] text-xs font-bold text-slate-500">
               Shev Law Group
             </span>
@@ -24,7 +89,7 @@ export const ShevHero = ({ title, subtitle, imageSrc, primaryColor }: { title: s
           <h1 className="text-4xl md:text-5xl lg:text-7xl font-serif font-bold leading-tight mb-6 text-slate-900">
             {title}
           </h1>
-          <p className="text-lg sm:text-xl lg:text-2xl mb-10 text-slate-600 leading-relaxed max-w-2xl border-l-4 pl-4" style={{ borderColor: isRed ? '#dc2626' : '#1d4ed8' }}>
+          <p className="text-lg sm:text-xl lg:text-2xl mb-10 text-slate-600 leading-relaxed max-w-2xl border-l-4 pl-4" style={{ borderColor: theme.highlightHex }}>
             {subtitle}
           </p>
         </motion.div>
@@ -47,7 +112,7 @@ export const ShevHero = ({ title, subtitle, imageSrc, primaryColor }: { title: s
             <div className="pt-4">
               <button 
                 className="relative w-full p-4 text-white font-bold uppercase tracking-widest transition-colors duration-300 hover:bg-slate-900 rounded-none overflow-hidden group"
-                style={{ backgroundColor: isRed ? '#dc2626' : '#1d4ed8' }}
+                style={{ backgroundColor: theme.hex }}
               >
                 <span className="relative z-10">{t('Submit')}</span>
                 <div className="absolute inset-0 w-full h-full bg-slate-900 transform -translate-x-full group-hover:translate-x-0 transition-transform duration-300 ease-out z-0"></div>
@@ -103,14 +168,13 @@ export const ShevBanner = ({ text, color }: { text: string, color: string }) => 
   );
 };
 
-export const ShevSuccessStories = ({ primaryColor, videoUrls }: { primaryColor: string, videoUrls?: string[] }) => {
+export const ShevSuccessStories = ({ primaryColor = 'blue', videoUrls }: { primaryColor?: string, videoUrls?: string[] }) => {
   const { t } = useTranslation();
-  const isRed = primaryColor === 'red';
-  const highlightHex = isRed ? '#dc2626' : '#1d4ed8';
+  const theme = getShevTheme(primaryColor);
 
   const defaultVideos = [
-    "https://www.tiktok.com/@tiktok/video/7106594312292453675",
-    "https://www.instagram.com/reel/C8q_o3dO0A1/"
+    "https://www.tiktok.com/@shev.law.group/video/7688823230446046494",
+    "https://www.tiktok.com/@shev.law.group/video/7685488437675216158"
   ];
   
   const videos = videoUrls || defaultVideos;
@@ -139,7 +203,7 @@ export const ShevSuccessStories = ({ primaryColor, videoUrls }: { primaryColor: 
           <h2 className="text-3xl sm:text-4xl md:text-5xl font-serif font-bold">
             {t('Success Stories')}
           </h2>
-          <div className="w-16 h-1 hidden md:block" style={{ backgroundColor: highlightHex }} />
+          <div className="w-16 h-1 hidden md:block" style={{ backgroundColor: theme.highlightHex }} />
         </motion.div>
         
         <div className="grid md:grid-cols-2 gap-8 mb-16 justify-items-center">
@@ -164,7 +228,7 @@ export const ShevSuccessStories = ({ primaryColor, videoUrls }: { primaryColor: 
                   />
                 ) : (
                   <div className="w-full h-[600px] flex items-center justify-center">
-                    <span className="text-slate-500">Invalid URL</span>
+                    <span className="text-slate-500">Video no disponible</span>
                   </div>
                 )}
               </motion.div>
@@ -173,68 +237,71 @@ export const ShevSuccessStories = ({ primaryColor, videoUrls }: { primaryColor: 
         </div>
 
         <div className="grid grid-cols-1 gap-8 max-w-4xl mx-auto">
-
-
-            {[
-              {
-                id: "01",
-                matter: "Commercial Dispute / Breach of Contract",
-                issue: "Client faced a hostile takeover attempt and breach of fiduciary duty by a minority shareholder, risking complete dissolution of the enterprise.",
-                action: "Initiated emergency injunctive relief in Federal Court, followed by aggressive discovery and a 4-month intense litigation strategy.",
-                result: "$12.5M Verdict and complete retention of corporate assets."
-              },
-              {
-                id: "02",
-                matter: "Catastrophic Workplace Injury",
-                issue: "Negligent third-party contractor caused severe scaffolding collapse resulting in permanent disability for our client.",
-                action: "Bypassed standard workers' compensation limits by proving gross negligence and filing a multi-defendant third-party liability suit.",
-                result: "$8.2M Settlement reached one week prior to trial."
-              }
-            ].map((caseStudy, i) => (
-              <motion.div 
-                key={i} 
-                initial={{ opacity: 0, y: 30 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: true }}
-                transition={{ delay: 0.2 + (i * 0.1) }}
-                className="bg-slate-800 border-l-4 transition-colors hover:bg-slate-700/80 p-8 sm:p-10 flex flex-col md:flex-row gap-8"
-                style={{ borderLeftColor: highlightHex }}
-              >
-                <div className="md:w-1/3 border-b md:border-b-0 md:border-r border-slate-700 pb-6 md:pb-0 md:pr-8">
-                  <div className="text-4xl font-serif font-bold text-slate-600 mb-2">{caseStudy.id}</div>
-                  <h4 className="text-lg font-bold text-white uppercase tracking-widest leading-tight">{caseStudy.matter}</h4>
+          {[
+            {
+              id: "01",
+              matter: "Commercial Dispute / Breach of Contract",
+              issue: "Client faced a hostile takeover attempt and breach of fiduciary duty by a minority shareholder, risking complete dissolution of the enterprise.",
+              action: "Initiated emergency injunctive relief in Federal Court, followed by aggressive discovery and a 4-month intense litigation strategy.",
+              result: "$12.5M Verdict and complete retention of corporate assets."
+            },
+            {
+              id: "02",
+              matter: "Catastrophic Workplace Injury",
+              issue: "Negligent third-party contractor caused severe scaffolding collapse resulting in permanent disability for our client.",
+              action: "Bypassed standard workers' compensation limits by proving gross negligence and filing a multi-defendant third-party liability suit.",
+              result: "$8.2M Settlement reached one week prior to trial."
+            }
+          ].map((caseStudy, i) => (
+            <motion.div 
+              key={i} 
+              initial={{ opacity: 0, y: 30 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              transition={{ delay: 0.2 + (i * 0.1) }}
+              className="bg-slate-800 border-l-4 transition-colors hover:bg-slate-700/80 p-8 sm:p-10 flex flex-col md:flex-row gap-8"
+              style={{ borderLeftColor: theme.highlightHex }}
+            >
+              <div className="md:w-1/3 border-b md:border-b-0 md:border-r border-slate-700 pb-6 md:pb-0 md:pr-8">
+                <div className="text-4xl font-serif font-bold text-slate-600 mb-2">{caseStudy.id}</div>
+                <h4 className="text-lg font-bold text-white uppercase tracking-widest leading-tight">{caseStudy.matter}</h4>
+              </div>
+              <div className="md:w-2/3 space-y-6">
+                <div>
+                  <h5 className="text-xs font-bold uppercase tracking-[0.2em] mb-2" style={{ color: theme.highlightHex }}>The Issue</h5>
+                  <p className="text-slate-300 font-serif leading-relaxed">{caseStudy.issue}</p>
                 </div>
-                <div className="md:w-2/3 space-y-6">
-                  <div>
-                    <h5 className="text-xs font-bold uppercase tracking-[0.2em] mb-2" style={{ color: highlightHex }}>The Issue</h5>
-                    <p className="text-slate-300 font-serif leading-relaxed">{caseStudy.issue}</p>
-                  </div>
-                  <div>
-                    <h5 className="text-xs font-bold uppercase tracking-[0.2em] mb-2" style={{ color: highlightHex }}>Our Action</h5>
-                    <p className="text-slate-300 font-serif leading-relaxed">{caseStudy.action}</p>
-                  </div>
-                  <div className="pt-4 border-t border-slate-700">
-                    <h5 className="text-xs font-bold uppercase tracking-[0.2em] mb-2 text-white">The Result</h5>
-                    <p className="text-2xl font-serif font-bold text-white">{caseStudy.result}</p>
-                  </div>
+                <div>
+                  <h5 className="text-xs font-bold uppercase tracking-[0.2em] mb-2" style={{ color: theme.highlightHex }}>Our Action</h5>
+                  <p className="text-slate-300 font-serif leading-relaxed">{caseStudy.action}</p>
                 </div>
-              </motion.div>
-            ))}
-          </div>
+                <div className="pt-4 border-t border-slate-700">
+                  <h5 className="text-xs font-bold uppercase tracking-[0.2em] mb-2 text-white">The Result</h5>
+                  <p className="text-2xl font-serif font-bold text-white">{caseStudy.result}</p>
+                </div>
+              </div>
+            </motion.div>
+          ))}
+        </div>
       </div>
     </section>
   );
 };
 
-export const ShevBiography = ({ attorneys, primaryColor }: { attorneys: { name: string, bio: string, imageSrc: string }[], primaryColor: string }) => {
+export const ShevBiography = ({ 
+  attorneys, 
+  primaryColor = 'blue' 
+}: { 
+  attorneys: { name: string, bio: string, imageSrc: string }[], 
+  primaryColor?: string 
+}) => {
   const { t } = useTranslation();
-  const highlightClass = primaryColor === 'red' ? 'text-red-600' : 'text-blue-700';
-  const bgClass = primaryColor === 'red' ? 'bg-red-600' : 'bg-blue-700';
+  const theme = getShevTheme(primaryColor);
 
   return (
     <section className="py-16 lg:py-24 px-6 sm:px-8 lg:px-16 bg-slate-50 relative">
       <div className="max-w-7xl mx-auto">
-        <h2 className={`text-sm uppercase tracking-[0.2em] font-bold mb-4 ${highlightClass} text-center`}>
+        <h2 className={`text-sm uppercase tracking-[0.2em] font-bold mb-4 ${theme.textClass} text-center`}>
           {t('Meet Our Team')}
         </h2>
         <div className="flex justify-center">
@@ -253,7 +320,7 @@ export const ShevBiography = ({ attorneys, primaryColor }: { attorneys: { name: 
                 className="w-full sm:w-80 lg:w-[350px] h-[400px] sm:h-[450px] flex-shrink-0 relative group mx-auto lg:mx-0"
               >
                 <img src={attorney.imageSrc} alt={attorney.name} className="w-full h-full object-cover grayscale group-hover:grayscale-0 transition-all duration-700 border border-slate-300" />
-                <div className={`absolute -bottom-4 ${idx % 2 === 1 ? '-left-4' : '-right-4'} w-24 h-24 ${bgClass} z-[-1]`} />
+                <div className={`absolute -bottom-4 ${idx % 2 === 1 ? '-left-4' : '-right-4'} w-24 h-24 ${theme.accentBoxBg} z-[-1]`} />
                 <div className={`absolute -top-4 ${idx % 2 === 1 ? '-right-4' : '-left-4'} w-24 h-24 border-t-4 border-slate-900 z-[-1] ${idx % 2 === 1 ? 'border-r-4' : 'border-l-4'}`} />
               </motion.div>
               
@@ -282,10 +349,16 @@ export const ShevBiography = ({ attorneys, primaryColor }: { attorneys: { name: 
   );
 };
 
-export const ShevFAQ = ({ questions, primaryColor }: { questions: {q: string, a: string}[], primaryColor: string }) => {
+export const ShevFAQ = ({ 
+  questions, 
+  primaryColor = 'blue' 
+}: { 
+  questions: {q: string, a: string}[], 
+  primaryColor?: string 
+}) => {
   const { t } = useTranslation();
   const [openIndex, setOpenIndex] = useState<number | null>(0);
-  const isRed = primaryColor === 'red';
+  const theme = getShevTheme(primaryColor);
 
   return (
     <section className="py-16 lg:py-24 px-6 sm:px-8 lg:px-16 bg-white text-slate-900 border-t border-slate-200">
@@ -299,8 +372,8 @@ export const ShevFAQ = ({ questions, primaryColor }: { questions: {q: string, a:
           <h2 className="text-3xl sm:text-4xl font-serif font-bold mb-4 text-slate-900">
             {t('Frequently Asked Questions')}
           </h2>
-          <p className="text-slate-500 mb-6">Clear answers to complex legal matters.</p>
-          <div className={`w-12 h-1 bg-${isRed ? 'red-600' : 'blue-700'}`} />
+          <p className="text-slate-500 mb-6">{t('Clear answers to complex legal matters.')}</p>
+          <div className={`w-12 h-1 ${theme.lineBg}`} />
         </motion.div>
 
         <div className="lg:w-2/3">
@@ -318,7 +391,10 @@ export const ShevFAQ = ({ questions, primaryColor }: { questions: {q: string, a:
                 className="w-full py-6 text-left flex justify-between items-center focus:outline-none hover:bg-slate-50 transition-colors px-4 group"
               >
                 <h4 className="text-lg md:text-xl font-bold font-serif pr-8 group-hover:text-slate-600 transition-colors">{faq.q}</h4>
-                <div className={`flex-shrink-0 w-8 h-8 border flex items-center justify-center transition-colors duration-300 ${openIndex === i ? (isRed ? 'bg-red-600 border-red-600 text-white' : 'bg-blue-700 border-blue-700 text-white') : 'border-slate-300 text-slate-400'}`}>
+                <div 
+                  className={`flex-shrink-0 w-8 h-8 border flex items-center justify-center transition-colors duration-300 ${openIndex === i ? 'text-white' : 'border-slate-300 text-slate-400'}`}
+                  style={openIndex === i ? { backgroundColor: theme.hex, borderColor: theme.hex } : {}}
+                >
                   {openIndex === i ? <Minus className="w-5 h-5" /> : <Plus className="w-5 h-5" />}
                 </div>
               </button>
@@ -330,7 +406,7 @@ export const ShevFAQ = ({ questions, primaryColor }: { questions: {q: string, a:
                     exit={{ height: 0, opacity: 0 }}
                     transition={{ duration: 0.3, ease: "easeInOut" }}
                   >
-                    <div className="px-4 pb-6 pt-2 text-slate-600 leading-relaxed border-l-2 ml-4" style={{ borderColor: isRed ? '#dc2626' : '#1d4ed8' }}>
+                    <div className="px-4 pb-6 pt-2 text-slate-600 leading-relaxed border-l-2 ml-4" style={{ borderColor: theme.highlightHex }}>
                       {faq.a}
                     </div>
                   </motion.div>
@@ -344,10 +420,15 @@ export const ShevFAQ = ({ questions, primaryColor }: { questions: {q: string, a:
   );
 };
 
-export const ShevWhyChooseUs = ({ points, primaryColor }: { points: { title: string, desc: string }[], primaryColor: string }) => {
+export const ShevWhyChooseUs = ({ 
+  points, 
+  primaryColor = 'blue' 
+}: { 
+  points: { title: string, desc: string }[], 
+  primaryColor?: string 
+}) => {
   const { t } = useTranslation();
-  const isRed = primaryColor === 'red';
-  const highlightHex = isRed ? '#dc2626' : '#1d4ed8';
+  const theme = getShevTheme(primaryColor);
 
   return (
     <section className="py-16 lg:py-24 px-6 sm:px-8 lg:px-16 bg-slate-100 relative border-t border-slate-200">
@@ -361,20 +442,20 @@ export const ShevWhyChooseUs = ({ points, primaryColor }: { points: { title: str
           <h2 className="text-3xl sm:text-4xl md:text-5xl font-serif font-bold mb-6 text-slate-900 uppercase tracking-widest">
             {t('Why Choose Us?')}
           </h2>
-          <div className="w-24 h-1 mx-auto" style={{ backgroundColor: highlightHex }} />
+          <div className="w-24 h-1 mx-auto" style={{ backgroundColor: theme.highlightHex }} />
         </motion.div>
         
         <div className="grid md:grid-cols-3 gap-8">
           {points.map((point, i) => (
             <motion.div 
-              key={i}
+              key={i} 
               initial={{ opacity: 0, y: 30 }}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
               transition={{ delay: i * 0.1 }}
               className="bg-white p-8 border border-slate-200 shadow-sm relative group hover:border-slate-400 transition-colors"
             >
-              <div className="absolute top-0 left-0 w-full h-1 scale-x-0 group-hover:scale-x-100 transition-transform origin-left duration-300" style={{ backgroundColor: highlightHex }} />
+              <div className="absolute top-0 left-0 w-full h-1 scale-x-0 group-hover:scale-x-100 transition-transform origin-left duration-300" style={{ backgroundColor: theme.highlightHex }} />
               <div className="text-4xl font-serif font-bold text-slate-200 mb-4 group-hover:text-slate-300 transition-colors">
                 0{i + 1}
               </div>
@@ -388,9 +469,9 @@ export const ShevWhyChooseUs = ({ points, primaryColor }: { points: { title: str
   );
 };
 
-export const ShevCTA = ({ primaryColor }: { primaryColor: string }) => {
+export const ShevCTA = ({ primaryColor = 'blue' }: { primaryColor?: string }) => {
   const { t } = useTranslation();
-  const isRed = primaryColor === 'red';
+  const theme = getShevTheme(primaryColor);
   
   const scrollToForm = (e: React.MouseEvent<HTMLAnchorElement>) => {
     e.preventDefault();
@@ -419,7 +500,7 @@ export const ShevCTA = ({ primaryColor }: { primaryColor: string }) => {
         <h2 className="text-4xl md:text-5xl lg:text-7xl font-serif font-bold text-white mb-8 uppercase tracking-widest">
           {t("Schedule your consultation")}
         </h2>
-        <div className="w-16 h-1 mx-auto mb-8" style={{ backgroundColor: isRed ? '#dc2626' : '#1d4ed8' }} />
+        <div className="w-16 h-1 mx-auto mb-8" style={{ backgroundColor: theme.highlightHex }} />
         <p className="text-xl text-slate-300 mb-10 max-w-2xl mx-auto font-serif italic">
           {t("Do not hesitate. Protect your interests today. Contact us for a confidential evaluation of your case.")}
         </p>
@@ -427,7 +508,7 @@ export const ShevCTA = ({ primaryColor }: { primaryColor: string }) => {
           href="#contact-form" 
           onClick={scrollToForm}
           className="inline-block relative overflow-hidden px-12 py-5 text-white font-bold uppercase tracking-widest transition-colors duration-300 hover:bg-white hover:text-slate-900 rounded-none group border-2"
-          style={{ borderColor: isRed ? '#dc2626' : '#1d4ed8', backgroundColor: isRed ? '#dc2626' : '#1d4ed8' }}
+          style={{ borderColor: theme.hex, backgroundColor: theme.hex }}
         >
           <span className="relative z-10 group-hover:text-slate-900 transition-colors">{t("Request Evaluation")}</span>
           <div className="absolute inset-0 w-full h-full bg-white transform -translate-x-full group-hover:translate-x-0 transition-transform duration-300 ease-out z-0"></div>
@@ -436,5 +517,3 @@ export const ShevCTA = ({ primaryColor }: { primaryColor: string }) => {
     </section>
   );
 };
-
-

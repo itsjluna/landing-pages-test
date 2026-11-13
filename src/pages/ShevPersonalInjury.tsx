@@ -1,13 +1,12 @@
 ﻿import React from 'react';
 import { useTranslation } from 'react-i18next';
-import { Helmet } from 'react-helmet-async';
 import { ShevHero, ShevBanner, ShevSuccessStories, ShevBiography, ShevFAQ, ShevWhyChooseUs, ShevCTA } from '../components/ShevBlocks';
 import { ShevStats, ShevPracticeAreas, ShevFloatingContact, ShevFooter } from '../components/ShevFeatures';
 import { ShieldAlert, HeartHandshake, Briefcase } from 'lucide-react';
 
 const ShevPersonalInjury = () => {
   const { t } = useTranslation();
-  const themeColor = 'red'; // Using red for PI to make it aggressive and pop
+  const themeColor = 'red';
 
   return (
     <div className="bg-slate-50 font-sans">
@@ -22,7 +21,7 @@ const ShevPersonalInjury = () => {
         stats={[
           { value: 150, suffix: "M+", label: t("shev.pi.stats.1.label") },
           { value: 2500, suffix: "+", label: t("shev.pi.stats.2.label") },
-          { value: 99, suffix: "%", label: t("mariana.imm.stats.2.label") }
+          { value: 99, suffix: "%", label: t("shev.pi.stats.3.label") }
         ]} 
       />
       <ShevBanner 
@@ -46,20 +45,20 @@ const ShevPersonalInjury = () => {
         ]}
       />
       <ShevBiography 
-          primaryColor={themeColor}
-          attorneys={[
-            {
-              name: t("shev.attorney1.name"),
-              bio: t("shev.attorney1.bio"),
-              imageSrc: "/images/pi/attorney1.png"
-            },
-            {
-              name: t("shev.attorney2.name"),
-              bio: t("shev.attorney2.bio"),
-              imageSrc: "/images/pi/attorney2.png"
-            }
-          ]}
-        />
+        primaryColor={themeColor}
+        attorneys={[
+          {
+            name: t("shev.attorney1.name"),
+            bio: t("shev.attorney1.bio"),
+            imageSrc: "/images/pi/attorney1.png"
+          },
+          {
+            name: t("shev.attorney2.name"),
+            bio: t("shev.attorney2.bio"),
+            imageSrc: "/images/pi/attorney2.png"
+          }
+        ]}
+      />
       <ShevSuccessStories primaryColor={themeColor} videoUrls={["https://www.tiktok.com/@shev.law.group/video/7688823230446046494", "https://www.tiktok.com/@shev.law.group/video/7685488437675216158"]} />
       <ShevFAQ 
         primaryColor={themeColor}

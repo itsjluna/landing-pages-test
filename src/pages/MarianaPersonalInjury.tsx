@@ -1,11 +1,16 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import { useTranslation } from 'react-i18next';
 import { MarianaHero, MarianaBanner, MarianaSuccessStories, MarianaBiography, MarianaFAQ, MarianaWhyChooseUs, MarianaCTA } from '../components/MarianaBlocks';
-import { MarianaStats, MarianaPracticeAreas, MarianaFloatingContact, MarianaFooter, MarianaTrustBadges } from '../components/MarianaFeatures';
+import { MarianaStats, MarianaPracticeAreas, MarianaFloatingContact, MarianaFooter } from '../components/MarianaFeatures';
 import { ShieldAlert, HeartHandshake, Briefcase } from 'lucide-react';
 
 const MarianaPersonalInjury = () => {
-  const { t } = useTranslation();
+  const { t, i18n } = useTranslation();
+  const palette = 'crimson';
+
+  useEffect(() => {
+    i18n.changeLanguage('es');
+  }, [i18n]);
 
   return (
     <div className="bg-slate-950">
@@ -13,49 +18,62 @@ const MarianaPersonalInjury = () => {
         title={t("mariana.pi.hero.title")}
         subtitle={t("mariana.pi.hero.subtitle")}
         imageSrc="/images/mariana/pi/hero.png"
+        palette={palette}
       />
-      <MarianaStats stats={[
-        { value: 50, suffix: "M+", label: t("mariana.pi.stats.1.label") },
-        { value: 1000, suffix: "+", label: t("mariana.pi.stats.2.label") },
-        { value: 15, suffix: "", label: t("mariana.pi.stats.3.label") }
-      ]} />
+      <MarianaStats 
+        palette={palette}
+        stats={[
+          { value: 50, suffix: "M+", label: t("mariana.pi.stats.1.label") },
+          { value: 1000, suffix: "+", label: t("mariana.pi.stats.2.label") },
+          { value: 15, suffix: "", label: t("mariana.pi.stats.3.label") }
+        ]} 
+      />
       <MarianaBanner 
-        text={t("If we don't win, you don't pay us")}
+        text={t("If we don't win, you don't pay us", "Si no ganamos, no nos paga")}
+        palette={palette}
       />
-      <MarianaPracticeAreas areas={[
-        { title: t("mariana.pi.practice.1.title"), desc: t("mariana.pi.practice.1.desc"), icon: ShieldAlert },
-        { title: t("mariana.pi.practice.2.title"), desc: t("mariana.pi.practice.2.desc"), icon: Briefcase },
-        { title: t("mariana.pi.practice.3.title"), desc: t("mariana.pi.practice.3.desc"), icon: HeartHandshake }
-      ]} />
-      <MarianaWhyChooseUs points={[
-        { title: t("mariana.pi.why.1.title"), desc: t("mariana.pi.why.1.desc") },
-        { title: t("mariana.pi.why.2.title"), desc: t("mariana.pi.why.2.desc") },
-        { title: t("mariana.pi.why.3.title"), desc: t("mariana.pi.why.3.desc") }
-      ]} />
+      <MarianaPracticeAreas 
+        palette={palette}
+        areas={[
+          { title: t("mariana.pi.practice.1.title"), desc: t("mariana.pi.practice.1.desc"), icon: ShieldAlert },
+          { title: t("mariana.pi.practice.2.title"), desc: t("mariana.pi.practice.2.desc"), icon: Briefcase },
+          { title: t("mariana.pi.practice.3.title"), desc: t("mariana.pi.practice.3.desc"), icon: HeartHandshake }
+        ]} 
+      />
+      <MarianaWhyChooseUs 
+        palette={palette}
+        points={[
+          { title: t("mariana.pi.why.1.title"), desc: t("mariana.pi.why.1.desc") },
+          { title: t("mariana.pi.why.2.title"), desc: t("mariana.pi.why.2.desc") },
+          { title: t("mariana.pi.why.3.title"), desc: t("mariana.pi.why.3.desc") }
+        ]} 
+      />
       <MarianaBiography 
         name={t("mariana.pi.bio.name", "Mariana Ehrenberg")}
         bio={t("mariana.pi.bio.text")}
         imageSrc="/images/mariana/pi/bio.png"
+        palette={palette}
       />
-      <MarianaSuccessStories videoUrls={[
-        "https://www.tiktok.com/@tuabogadamariana/video/7685471966345579806",
-        "https://www.tiktok.com/@tuabogadamariana/video/7683212877582421262"
-      ]} />
+      <MarianaSuccessStories 
+        palette={palette}
+        videoUrls={[
+          "https://www.tiktok.com/@tuabogadamariana/video/7685471966345579806",
+          "https://www.tiktok.com/@tuabogadamariana/video/7683212877582421262"
+        ]} 
+      />
       <MarianaFAQ 
+        palette={palette}
         questions={[
           {q: t("mariana.pi.faq.1.q"), a: t("mariana.pi.faq.1.a")},
           {q: t("mariana.pi.faq.2.q"), a: t("mariana.pi.faq.2.a")},
           {q: t("mariana.pi.faq.3.q"), a: t("mariana.pi.faq.3.a")}
         ]}
       />
-      <MarianaCTA />
-      <MarianaFooter />
+      <MarianaCTA palette={palette} />
+      <MarianaFooter palette={palette} />
       <MarianaFloatingContact />
     </div>
   );
 };
 
 export default MarianaPersonalInjury;
-
-
-

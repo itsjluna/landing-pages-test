@@ -1,6 +1,5 @@
 ﻿import React from 'react';
 import { useTranslation } from 'react-i18next';
-import { Helmet } from 'react-helmet-async';
 import { ShevHero, ShevBanner, ShevSuccessStories, ShevBiography, ShevFAQ, ShevWhyChooseUs, ShevCTA } from '../components/ShevBlocks';
 import { ShevStats, ShevPracticeAreas, ShevFloatingContact, ShevFooter } from '../components/ShevFeatures';
 import { Globe, FileCheck2, Building2 } from 'lucide-react';
@@ -46,20 +45,20 @@ const ShevImmigration = () => {
         ]}
       />
       <ShevBiography 
-          primaryColor={themeColor}
-          attorneys={[
-            {
-              name: t("shev.attorney1.name"),
-              bio: t("shev.attorney1.bio"),
-              imageSrc: "/images/imm/attorney1.png"
-            },
-            {
-              name: t("shev.attorney2.name"),
-              bio: t("shev.attorney2.bio"),
-              imageSrc: "/images/imm/attorney2.png"
-            }
-          ]}
-        />
+        primaryColor={themeColor}
+        attorneys={[
+          {
+            name: t("shev.attorney1.name"),
+            bio: t("shev.attorney1.bio"),
+            imageSrc: "/images/imm/attorney1.png"
+          },
+          {
+            name: t("shev.attorney2.name"),
+            bio: t("shev.attorney2.bio"),
+            imageSrc: "/images/imm/attorney2.png"
+          }
+        ]}
+      />
       <ShevSuccessStories primaryColor={themeColor} videoUrls={["https://www.tiktok.com/@shev.law.group/video/7678823452584742175", "https://www.tiktok.com/@shev.law.group/video/7673209705178729758"]} />
       <ShevFAQ 
         primaryColor={themeColor}

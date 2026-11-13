@@ -1,13 +1,12 @@
 import React from 'react';
 import { useTranslation } from 'react-i18next';
-import { Helmet } from 'react-helmet-async';
 import { ShevHero, ShevBanner, ShevSuccessStories, ShevBiography, ShevFAQ, ShevWhyChooseUs, ShevCTA } from '../components/ShevBlocks';
 import { ShevStats, ShevPracticeAreas, ShevFloatingContact, ShevFooter } from '../components/ShevFeatures';
 import { Building2, Scale, Handshake } from 'lucide-react';
 
 const ShevBusiness = () => {
   const { t } = useTranslation();
-  const themeColor = 'blue';
+  const themeColor = 'navy';
 
   return (
     <div className="bg-slate-50 font-sans">
@@ -27,7 +26,7 @@ const ShevBusiness = () => {
       />
       <ShevBanner 
         text={t("Book your consultation now")}
-        color="#0f172a" // slate-900
+        color="#0f2347"
       />
       <ShevPracticeAreas 
         primaryColor={themeColor}
@@ -46,20 +45,20 @@ const ShevBusiness = () => {
         ]}
       />
       <ShevBiography 
-          primaryColor={themeColor}
-          attorneys={[
-            {
-              name: t("shev.attorney1.name"),
-              bio: t("shev.attorney1.bio"),
-              imageSrc: "/images/biz/attorney1.png"
-            },
-            {
-              name: t("shev.attorney2.name"),
-              bio: t("shev.attorney2.bio"),
-              imageSrc: "/images/biz/attorney2.png"
-            }
-          ]}
-        />
+        primaryColor={themeColor}
+        attorneys={[
+          {
+            name: t("shev.attorney1.name"),
+            bio: t("shev.attorney1.bio"),
+            imageSrc: "/images/biz/attorney1.png"
+          },
+          {
+            name: t("shev.attorney2.name"),
+            bio: t("shev.attorney2.bio"),
+            imageSrc: "/images/biz/attorney2.png"
+          }
+        ]}
+      />
       <ShevSuccessStories primaryColor={themeColor} videoUrls={["https://www.tiktok.com/@shev.law.group/video/7660589016797957407", "https://www.tiktok.com/@shev.law.group/video/7675825757737733406"]} />
       <ShevFAQ 
         primaryColor={themeColor}
@@ -77,4 +76,3 @@ const ShevBusiness = () => {
 };
 
 export default ShevBusiness;
-
